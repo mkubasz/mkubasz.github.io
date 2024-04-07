@@ -18,12 +18,13 @@ I am always looking for new opportunities to challenge myself and contribute to 
 
 
 ## My stack:
- - Languages: Python, JavaScript/TypeScript, Rust, Scala, Go
+ - Languages: Python, JavaScript/TypeScript, Rust, Go
  - Clouds: AWS, Google Cloud
  - Devops: GitOps, MLOps, Docker, K8s, Helmet, Github, Gitlab, Terraform, Terragrunt
  - Software Topics: DDD, CQRS/ES, Desing Patterns, Cloud Computing, Algorithms, Functional Programming
- - Architecture Topics: Enterprise Architecture, Microservices, Distributed Systems, Message Brokers, Streaming, Event Storming
+ - Architecture Topics: Enterprise Architecture, Microservices, Distributed Systems, Message Brokers, Streaming, Event Storming, Caching
  - DE: ElasticSearch, ClickHouse, Apach Spark, Apach Flnk, Airflow/Perfect, DBT
+ - Frontend: React/ Next.js/ TailwindCSS
 
 ## 👩🏼‍💻 Technical Experience
 
