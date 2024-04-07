@@ -53,6 +53,7 @@ I am always looking for new opportunities to challenge myself and contribute to 
 <br><br>
 
 **Senior Software Engineer** @ [Laminar](https://lamin.ar/) _(September 2022 - October 2023)_ <br>
+  (Company was sold)
   - Working on on the new video streaming platform like Netflix.
   - Responsible for the AWS and CI/CD
   - Planning and implementing business architecture
@@ -61,7 +62,6 @@ I am always looking for new opportunities to challenge myself and contribute to 
   - Responsible for the managing content and orchiestration
   **_Technologies used:_** Node, Terraform, Python (FastAPI, Celery), Pandas, Terragrunt, BigData, Streaming, Spark, Dbt, Akamai, FinOps, AWS, GCP, K8S
 <br><br>
-
 
 **Senior Software Engineer Technical Lead** @ [MasterBorn](https://masterborn.com/) _(January 2020 - March 2022)_ <br>
 - Delivered as an Lead a political platform to archive documents in USA - AWS Serverless, Elasticsearch(NLP) and AWS stack.
@@ -103,16 +103,15 @@ Django, Scrappy, QGIS, GDAL, CQRS, ES, DDD, Distributed Systems, Streams, Kotlin
 <br><br>
     
 **Software Engineering** @ Freelancer _(March 2012 - March 2017)_ <br>
-1. Company: Envipro. Created ERP system for trash service company.
-**_Technologies used:_** mobile app (Android), web(HTML, Ks, d6,Ks, query, grunt) and backend(.net
-4).
-2. Company: University of Opole. Creating the application support Manage lectures using WPF and scripts in .Net.
+1. Company: Envipro. Created ERP system for trash service company. Responsible for planning and implementation database in T-SQL. Integrate DevOps pipeline and scripts.
+**_Technologies used:_** mobile app (Android), web(HTML, Ks, d6,Ks, query, grunt) and backend(.net 4).
+2. University of Opole. Creating the application support Manage lectures using WPF and scripts in .Net.
 3. Company: Orb. Creating the mobile application named [Brewiarz](https://play.google.com/store/apps/details?id=osoftware.liturgiahorarumdroid&hl=pl&gl=US).
 4. Company: Future Processing. Refactor and implementing new features into the UKpower platrom. **_Technologies used:_** Ruby on Rails.
-5. Company: Weegree. Creating the system ERP for outsourcing support. **_Technologies used:_** DDD, CQRS, Event Sourcing,
+5. Company: Weegree. Creating the system ERP for outsourcing support. 
+**_Technologies used:_** DDD, CQRS, Event Sourcing,
 Backend(.Net Core), Frontend(React, React Native, Bootstrap, ES , 9Query, Redux),
 Databases(MySQL, MsSQL and MongoDB), scripts in Jenkins(Groovy). 
-6. Company: Profitech. Responsible for planning and implementation database in T-SQL. Integrate DevOps pipeline and scripts.
 7. Company: Techland. Responsible for implementation of AI for Dying Light.
 8. Open source: 
   - Creating improvements into GCC
