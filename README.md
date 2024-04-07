@@ -31,15 +31,13 @@ I am always looking for new opportunities to challenge myself and contribute to 
 
   Some bigger consultation projects:
 
- - Facilitator in Event Storming workshops for startup clients
+ - Facilitator in Event Storming workshops for UK startup clients
  - Migrate to cloud infrastructure for Canal+ - Python, AWS, Spark, Snowflake
  - Responsible for implementation infrastructure using the GCP and CI/CD approach for Betfan - GCP, Github
  - Planning and implementing marketing for Acast - AWS, Node, CDK, Github
- - Responsible for the ML library in Rust (DuckRS).
- - Responsible for a mobile applications in Flutter stack. (Brewiarz, Shoplist, Todo, Nozbe Lightweight, Schedule Manager)
+ - Responsible for Open Source ML library in Rust (DuckRS).
  - Responsible for the platform for car detection business case for the client New York City. Image and video processing stack.
- - Consulting with Clients topics related with the Data Science and MLOps tech stack.
- - Planning and run workshops to learn Data Science skills in Order of Devs Community.
+ - Planning and run workshops to learn Data Science skills in Polish IT Community.
  **_Technologies used:_** Python (PySpark, FastAPI, Django), Rust, Scala, Flutter, Dart, Node(Express, Koa, Fastify).
 <br><br>
 
