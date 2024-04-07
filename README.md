@@ -43,7 +43,16 @@ I am always looking for new opportunities to challenge myself and contribute to 
  **_Technologies used:_** Python (PySpark, FastAPI, Django), Rust, Scala, Flutter, Dart, Node(Express, Koa, Fastify).
 <br><br>
 
-**Senior Software Engineer** @ [Laminar](https://lamin.ar/) _(September 2022 - Present)_ <br>
+**Senior Software Engineer/AI Consultant** @ [Heliux](https://www.heliux.com/) _(September 2023 - Present)_ <br>
+  - Working on on the Supply Chain and Product module.
+  - Implemented AI for supply chain and product managment flow including agents/integration/LLM
+  - Responsible for the AWS and CI/CD
+  - Planning and implementing business architecture for two modules
+  - Responsible for backend side and frontent
+  **_Technologies used:_** Node, Rust, Python (FastAPI, Celery), Pandas, OpenAI, HuggingFace, LangChain, Qdrant, Postgres, AWS
+<br><br>
+
+**Senior Software Engineer** @ [Laminar](https://lamin.ar/) _(September 2022 - October 2023)_ <br>
   - Working on on the new video streaming platform like Netflix.
   - Responsible for the AWS and CI/CD
   - Planning and implementing business architecture
