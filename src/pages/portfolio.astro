@@ -1,0 +1,204 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Portfolio">
+  <h1>Portfolio &amp; Projects</h1>
+
+  <p>A showcase of my technical leadership, architecture design, and hands-on engineering across AI, cloud, and data systems.</p>
+
+  <hr />
+
+  <h2>Featured Projects</h2>
+
+  <div class="project-grid">
+    <h3>🤖 AI-Powered Supply Chain Platform</h3>
+    <p><strong>Heliux | 2023 - Present</strong></p>
+
+    <div class="project-details">
+      <p><strong>Role:</strong> Senior Software Engineer / AI Consultant</p>
+
+      <p><strong>Challenge:</strong> Build an intelligent supply chain management system with AI-driven decision making and product management capabilities.</p>
+
+      <p><strong>Solution:</strong></p>
+      <ul>
+        <li>Designed and implemented AI agent system for automated decision-making</li>
+        <li>Integrated LLMs (OpenAI, HuggingFace) for natural language processing</li>
+        <li>Built custom vector search using Qdrant for intelligent product matching</li>
+        <li>Architected AWS infrastructure with focus on scalability and cost optimization</li>
+        <li>Implemented full CI/CD pipeline for rapid deployment</li>
+      </ul>
+
+      <p><strong>Technologies:</strong></p>
+      <ul>
+        <li><strong>AI/ML:</strong> OpenAI, HuggingFace, LangChain, Qdrant</li>
+        <li><strong>Backend:</strong> Python (FastAPI, Celery), Node.js, Rust</li>
+        <li><strong>Data:</strong> Pandas, PostgreSQL</li>
+        <li><strong>Cloud:</strong> AWS (Lambda, ECS, RDS, S3)</li>
+        <li><strong>Tools:</strong> Docker, Terraform, GitHub Actions</li>
+      </ul>
+
+      <p><strong>Impact:</strong></p>
+      <ul>
+        <li>Automated 60% of manual product management tasks</li>
+        <li>Improved product matching accuracy by 85%</li>
+        <li>Reduced processing time from hours to minutes</li>
+        <li>Successfully deployed to production serving thousands of daily requests</li>
+      </ul>
+    </div>
+
+    <hr />
+
+    <h3>📺 Netflix-like Video Streaming Platform</h3>
+    <p><strong>Laminar | 2022 - 2023</strong></p>
+
+    <div class="project-details">
+      <p><strong>Role:</strong> Senior Software Engineer (Technical Lead)</p>
+
+      <p><strong>Challenge:</strong> Build a scalable, global video streaming platform with content management, orchestration, and delivery systems.</p>
+
+      <p><strong>Solution:</strong></p>
+      <ul>
+        <li>Architected cloud infrastructure across AWS and GCP</li>
+        <li>Designed content delivery pipeline using Akamai CDN</li>
+        <li>Built real-time analytics using Spark and dbt</li>
+        <li>Implemented serverless video processing workflows</li>
+        <li>Led cost optimization initiatives (FinOps) reducing infrastructure costs by 35%</li>
+      </ul>
+
+      <p><strong>Technologies:</strong></p>
+      <ul>
+        <li><strong>Cloud:</strong> AWS, GCP, Kubernetes</li>
+        <li><strong>Data:</strong> Apache Spark, dbt, BigQuery</li>
+        <li><strong>Backend:</strong> Node.js, Python (FastAPI, Celery)</li>
+        <li><strong>CDN:</strong> Akamai</li>
+        <li><strong>IaC:</strong> Terraform, Terragrunt</li>
+      </ul>
+
+      <p><strong>Impact:</strong></p>
+      <ul>
+        <li>Delivered platform handling 100k+ concurrent streams</li>
+        <li>Achieved 99.9% uptime SLA</li>
+        <li>Reduced content delivery latency by 40%</li>
+        <li>Optimized infrastructure costs by 35%</li>
+      </ul>
+    </div>
+
+    <hr />
+
+    <h3>📚 Political Document Archive with NLP</h3>
+    <p><strong>MasterBorn | 2020 - 2022</strong></p>
+
+    <div class="project-details">
+      <p><strong>Role:</strong> Senior Software Engineer / Technical Lead</p>
+
+      <p><strong>Challenge:</strong> Create an intelligent archive system for political documents with advanced search and analysis capabilities.</p>
+
+      <p><strong>Solution:</strong></p>
+      <ul>
+        <li>Designed AWS serverless architecture for scalability</li>
+        <li>Implemented NLP pipeline using Elasticsearch</li>
+        <li>Built custom document processing and OCR system</li>
+        <li>Architected search functionality with semantic understanding</li>
+        <li>Created real-time indexing pipeline</li>
+      </ul>
+
+      <p><strong>Technologies:</strong></p>
+      <ul>
+        <li><strong>Search:</strong> Elasticsearch (with NLP plugins)</li>
+        <li><strong>Cloud:</strong> AWS (Lambda, Step Functions, S3, DynamoDB)</li>
+        <li><strong>Backend:</strong> Python (FastAPI), TypeScript</li>
+        <li><strong>Data:</strong> Airflow, dbt</li>
+        <li><strong>IaC:</strong> Terraform</li>
+      </ul>
+
+      <p><strong>Impact:</strong></p>
+      <ul>
+        <li>Processed and indexed 1M+ documents</li>
+        <li>Enabled sub-second search across entire archive</li>
+        <li>95% accuracy in document classification</li>
+        <li>Reduced manual processing time by 90%</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr />
+
+  <h2>By The Numbers</h2>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-number">13+</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-number">50+</div>
+      <div class="stat-label">Projects Delivered</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-number">10+</div>
+      <div class="stat-label">Technologies Mastered</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-number">100+</div>
+      <div class="stat-label">Team Members Mentored</div>
+    </div>
+  </div>
+
+  <hr />
+
+  <h2>Technologies &amp; Tools</h2>
+
+  <div class="tech-section">
+    <h3>Languages</h3>
+    <p>Python | Rust | TypeScript/JavaScript | Go | Scala | C++ | C#</p>
+
+    <h3>Cloud Platforms</h3>
+    <p>AWS | GCP | Azure</p>
+
+    <h3>AI &amp; Machine Learning</h3>
+    <p>OpenAI | Anthropic Claude | HuggingFace | LangChain | TensorFlow | PyTorch | Qdrant | Pinecone</p>
+
+    <h3>Data Engineering</h3>
+    <p>Apache Spark | Apache Flink | Airflow | Prefect | dbt | Elasticsearch | ClickHouse | Snowflake | BigQuery</p>
+
+    <h3>DevOps &amp; Infrastructure</h3>
+    <p>Docker | Kubernetes | Terraform | Terragrunt | GitHub Actions | GitLab CI | ArgoCD</p>
+
+    <h3>Architecture Patterns</h3>
+    <p>DDD | CQRS | Event Sourcing | Microservices | Event-Driven | Serverless</p>
+
+    <h3>Frontend</h3>
+    <p>React | Next.js | TailwindCSS</p>
+  </div>
+
+  <hr />
+
+  <h2>Industry Experience</h2>
+
+  <div class="industries-list">
+    <ul>
+      <li><strong>FinTech</strong> - Payment platforms, fraud detection, document processing</li>
+      <li><strong>Media &amp; Entertainment</strong> - Streaming platforms, content management</li>
+      <li><strong>HealthTech</strong> - Disease detection, patient management</li>
+      <li><strong>Supply Chain</strong> - AI-powered optimization, inventory management</li>
+      <li><strong>Gaming</strong> - AI implementation, game infrastructure</li>
+      <li><strong>Transportation &amp; Logistics</strong> - Route optimization, tracking systems</li>
+      <li><strong>Government &amp; Public Sector</strong> - Document archiving, data analysis</li>
+    </ul>
+  </div>
+
+  <hr />
+
+  <h2>Let's Build Together</h2>
+
+  <div class="cta-section">
+    <p>Interested in working together on your next project?</p>
+
+    <a href="/services" class="btn-primary">View My Services</a>
+    <a href="/about#contact" class="btn-secondary">Contact Me</a>
+  </div>
+</BaseLayout>
