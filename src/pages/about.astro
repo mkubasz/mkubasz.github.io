@@ -1,4 +1,27 @@
 ---
+/**
+ * Contact Form Configuration
+ *
+ * The contact form is currently configured to use FormSubmit (https://formsubmit.co/)
+ *
+ * TO USE FORMSUBMIT (Current configuration):
+ * - The form will send to: m.kubaszek@protonmail.com
+ * - On first submission, FormSubmit will send a confirmation email
+ * - Click the link in that email to activate the form
+ * - No signup required!
+ *
+ * TO SWITCH TO FORMSPREE:
+ * 1. Sign up at https://formspree.io/
+ * 2. Create a new form and get your form endpoint
+ * 3. Replace the form action with: https://formspree.io/f/YOUR_FORM_ID
+ * 4. Remove the FormSubmit hidden inputs (_subject, _captcha, _template)
+ *
+ * TO SWITCH TO WEB3FORMS:
+ * 1. Get your access key at https://web3forms.com/
+ * 2. Replace the form action with: https://api.web3forms.com/submit
+ * 3. Add: <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY">
+ * 4. Remove the FormSubmit hidden inputs
+ */
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
@@ -186,7 +209,38 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <li>Consulting and collaboration</li>
     </ul>
 
-    <h3>Get In Touch</h3>
+    <h3>Send Me a Message</h3>
+
+    <form class="contact-form" action="https://formsubmit.co/m.kubaszek@protonmail.com" method="POST">
+      <!-- FormSubmit Configuration -->
+      <input type="hidden" name="_subject" value="New contact from mkubasz.github.io">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+
+      <div class="form-group">
+        <label for="name">Name *</label>
+        <input type="text" id="name" name="name" required placeholder="Your Name">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+      </div>
+
+      <div class="form-group">
+        <label for="subject">Subject *</label>
+        <input type="text" id="subject" name="subject" required placeholder="What would you like to discuss?">
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message *</label>
+        <textarea id="message" name="message" rows="6" required placeholder="Tell me about your project or question..."></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+
+    <h3>Other Ways to Reach Me</h3>
 
     <p><strong>Email:</strong></p>
     <ul>
