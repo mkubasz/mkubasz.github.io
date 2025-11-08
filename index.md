@@ -96,7 +96,7 @@ I use my **business analysis background** to ensure technical roadmaps are perfe
 
 I'm passionate about **driving technical excellence** and **building a positive engineering culture**. If you're tackling a complex challenge, let's connect.
 
-<div class="cta-section">
+<div class="cta-section" markdown="1">
 
 ### Ready to Unlock the Power of Data & AI?
 
@@ -121,7 +121,7 @@ I'm passionate about **driving technical excellence** and **building a positive 
 
 ---
 
-<div class="recent-highlights">
+<div class="recent-highlights" markdown="1">
 
 ## Recent Highlights
 
@@ -144,7 +144,7 @@ I'm passionate about **driving technical excellence** and **building a positive 
 
 ---
 
-<div class="testimonial-section">
+<div class="testimonial-section" markdown="1">
 
 ## Let's Build Something Extraordinary
 
