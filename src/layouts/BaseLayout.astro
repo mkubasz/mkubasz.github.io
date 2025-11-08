@@ -1,0 +1,137 @@
+---
+const { title, description } = Astro.props;
+const siteTitle = "Mateusz Kubaszek";
+const siteTagline = "Senior Technical Leader & Software/AI Architect";
+const siteDescription = "Senior Technical Leader with 13+ years experience in AI architecture, LLM implementation, cloud systems, and team leadership. Specializing in solving complex problems at the intersection of technology and business.";
+const author = {
+  name: "Mateusz (Matthew) Kubaszek",
+  email: "m.kubaszek@protonmail.com",
+  linkedin: "https://www.linkedin.com/in/%F0%9F%A7%99-mateusz-kubaszek-58306466/",
+  github: "https://github.com/mkubasz/",
+  twitter: "https://twitter.com/MateuszKubaszek/",
+  location: "Opole, Poland"
+};
+
+const navigation = [
+  { title: "Home", url: "/" },
+  { title: "Services", url: "/services" },
+  { title: "Portfolio", url: "/portfolio" },
+  { title: "Blog", url: "/blog" },
+  { title: "About", url: "/about" }
+];
+
+const currentPath = Astro.url.pathname;
+const pageTitle = title ? `${title} | ${siteTitle}` : siteTitle;
+const pageDescription = description || siteDescription;
+const currentYear = new Date().getFullYear();
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>{pageTitle}</title>
+  <meta name="description" content={pageDescription}>
+
+  <!-- SEO -->
+  <meta name="author" content={author.name}>
+  <meta property="og:title" content={pageTitle}>
+  <meta property="og:description" content={pageDescription}>
+  <meta property="og:type" content="website">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="wrapper">
+    <!-- Navigation -->
+    <header class="site-header">
+      <div class="header-content">
+        <div class="logo">
+          <a href="/">
+            <span class="logo-name">{siteTitle}</span>
+            <span class="logo-tagline">{siteTagline}</span>
+          </a>
+        </div>
+
+        <nav class="main-nav">
+          <input type="checkbox" id="nav-toggle" class="nav-toggle">
+          <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+          </label>
+
+          <ul class="nav-menu">
+            {navigation.map(item => (
+              <li class="nav-item">
+                <a href={item.url}
+                   class:list={["nav-link", { active: currentPath === item.url }]}>
+                  {item.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="page-content">
+      <div class="container">
+        <slot />
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>{author.name}</h3>
+          <p>{siteTagline}</p>
+          <p class="location">📍 {author.location}</p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Connect</h3>
+          <ul class="social-links">
+            <li><a href={author.linkedin} target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href={author.github} target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href={author.twitter} target="_blank" rel="noopener">Twitter</a></li>
+            <li><a href="https://www.youtube.com/channel/UCVgwdFgvU97vHR0rXBLDVpg" target="_blank" rel="noopener">YouTube</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="/services">Services</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/about">About</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <ul class="contact-links">
+            <li><a href={`mailto:${author.email}`}>{author.email}</a></li>
+            <li><a href="mailto:mkubasz@gmail.com">mkubasz@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; {currentYear} {author.name}. All rights reserved.</p>
+        <p class="footer-tagline">Building the future, one line of code at a time.</p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+const { frontmatter } = Astro.props;
+const { title, date, excerpt, categories, tags } = frontmatter;
+
+// Format date
+const formattedDate = new Date(date).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+---
+
+<BaseLayout title={title}>
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">{title}</h1>
+
+      <div class="post-meta">
+        <time datetime={date}>
+          {formattedDate}
+        </time>
+
+        {categories && categories.length > 0 && (
+          <span class="post-categories">
+            {categories.map(category => (
+              <span class="category">{category}</span>
+            ))}
+          </span>
+        )}
+      </div>
+
+      {excerpt && (
+        <div class="post-excerpt">
+          {excerpt}
+        </div>
+      )}
+    </header>
+
+    <div class="post-content">
+      <slot />
+    </div>
+
+    {tags && tags.length > 0 && (
+      <footer class="post-footer">
+        <div class="post-tags">
+          <strong>Tags:</strong>
+          {tags.map(tag => (
+            <span class="tag">{tag}</span>
+          ))}
+        </div>
+      </footer>
+    )}
+
+    <div class="post-cta">
+      <h3>Found this helpful?</h3>
+      <p>Share your thoughts or questions - I'd love to hear from you!</p>
+      <a href="/about#contact" class="btn-primary">Get in Touch</a>
+    </div>
+  </article>
+</BaseLayout>
