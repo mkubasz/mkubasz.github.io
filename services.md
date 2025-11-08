@@ -12,7 +12,7 @@ Transform your business challenges into innovative technical solutions with my c
 
 ## My Consulting Services
 
-<div class="services-grid">
+<div class="services-grid" markdown="1">
 
 ### 📊 Comprehensive Presentation Prior to Full-Scale Consulting
 **Fixed Price | Remote or On-site**
@@ -174,34 +174,34 @@ Get your data processing infrastructure up and running quickly:
 
 ## Why Choose My Consulting Services?
 
-<div class="benefits-grid">
+<div class="benefits-grid" markdown="1">
 
-<div class="benefit-card">
+<div class="benefit-card" markdown="1">
 <h3>🎯 Business-Focused</h3>
 <p>Technical solutions aligned with your business goals and ROI</p>
 </div>
 
-<div class="benefit-card">
+<div class="benefit-card" markdown="1">
 <h3>🔬 Proven Expertise</h3>
 <p>13+ years solving complex problems across multiple industries</p>
 </div>
 
-<div class="benefit-card">
+<div class="benefit-card" markdown="1">
 <h3>⚡ Rapid Delivery</h3>
 <p>Efficient execution with focus on quick wins and long-term value</p>
 </div>
 
-<div class="benefit-card">
+<div class="benefit-card" markdown="1">
 <h3>🌐 Modern Tech Stack</h3>
 <p>Expertise in cutting-edge technologies and best practices</p>
 </div>
 
-<div class="benefit-card">
+<div class="benefit-card" markdown="1">
 <h3>📚 Knowledge Transfer</h3>
 <p>Empower your team through documentation and training</p>
 </div>
 
-<div class="benefit-card">
+<div class="benefit-card" markdown="1">
 <h3>🤝 Collaborative Approach</h3>
 <p>Work alongside your team, not in isolation</p>
 </div>
@@ -241,7 +241,7 @@ One-time or recurring training sessions
 
 ## Get Started
 
-<div class="cta-section">
+<div class="cta-section" markdown="1">
 
 ### Ready to Transform Your Technical Capabilities?
 
@@ -282,7 +282,7 @@ One-time or recurring training sessions
 
 ---
 
-<div class="testimonial-note">
+<div class="testimonial-note" markdown="1">
 <em>Each engagement is customized to your specific needs and challenges. Let's discuss how I can help accelerate your success.</em>
 </div>
 
