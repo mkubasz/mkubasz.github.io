@@ -10,7 +10,7 @@ Insights on AI, architecture, cloud engineering, and technical leadership.
 
 ---
 
-<div class="blog-intro">
+<div class="blog-intro" markdown="1">
 
 Welcome to my technical blog where I share insights, experiences, and best practices from 13+ years of building scalable systems, implementing AI solutions, and leading engineering teams.
 
@@ -28,7 +28,7 @@ Welcome to my technical blog where I share insights, experiences, and best pract
 
 ## Latest Posts
 
-<div class="blog-posts-list">
+<div class="blog-posts-list" markdown="1">
 
 ### Coming Soon: Expert Insights on Modern Software Engineering
 
@@ -75,34 +75,34 @@ I'm preparing a series of in-depth articles covering:
 
 ## Featured Topics
 
-<div class="topics-grid">
+<div class="topics-grid" markdown="1">
 
-<div class="topic-card">
+<div class="topic-card" markdown="1">
 <h3>🤖 AI & LLMs</h3>
 <p>Practical insights on implementing AI solutions in production environments</p>
 </div>
 
-<div class="topic-card">
+<div class="topic-card" markdown="1">
 <h3>☁️ Cloud Architecture</h3>
 <p>Designing scalable, cost-effective cloud systems</p>
 </div>
 
-<div class="topic-card">
+<div class="topic-card" markdown="1">
 <h3>📊 Data Engineering</h3>
 <p>Building robust data pipelines and analytics platforms</p>
 </div>
 
-<div class="topic-card">
+<div class="topic-card" markdown="1">
 <h3>🏗️ Architecture</h3>
 <p>Software architecture patterns for complex systems</p>
 </div>
 
-<div class="topic-card">
+<div class="topic-card" markdown="1">
 <h3>👥 Leadership</h3>
 <p>Technical leadership and team management</p>
 </div>
 
-<div class="topic-card">
+<div class="topic-card" markdown="1">
 <h3>⚡ DevOps</h3>
 <p>Modern DevOps practices and automation</p>
 </div>
@@ -113,7 +113,7 @@ I'm preparing a series of in-depth articles covering:
 
 ## Subscribe for Updates
 
-<div class="subscribe-section">
+<div class="subscribe-section" markdown="1">
 
 Want to be notified when new articles are published?
 
@@ -144,7 +144,7 @@ I also share knowledge through speaking engagements and workshops. Check out som
 
 ## Write for Your Team
 
-<div class="custom-content-section">
+<div class="custom-content-section" markdown="1">
 
 Looking for custom content, workshops, or training for your team?
 
@@ -160,7 +160,7 @@ I offer:
 
 ---
 
-<div class="cta-section">
+<div class="cta-section" markdown="1">
 
 ## Let's Connect
 

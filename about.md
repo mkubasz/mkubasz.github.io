@@ -6,7 +6,7 @@ permalink: /about/
 
 # About Mateusz Kubaszek
 
-<div class="about-hero">
+<div class="about-hero" markdown="1">
 
 ## Senior Technical Leader & Software/AI Architect
 
@@ -49,7 +49,7 @@ With a strong business analysis background, I ensure technical roadmaps align pe
 
 ## Professional Journey
 
-<div class="timeline">
+<div class="timeline" markdown="1">
 
 ### 2023 - Present: AI Consultant
 **Heliux**
@@ -136,7 +136,7 @@ Notable projects:
 
 ## Technical Expertise
 
-<div class="expertise-section">
+<div class="expertise-section" markdown="1">
 
 ### Languages & Frameworks
 **Primary:** Python, Rust, TypeScript/JavaScript, Go
@@ -218,7 +218,7 @@ React, Next.js, TailwindCSS
 
 ## Contact Me {#contact}
 
-<div class="contact-section">
+<div class="contact-section" markdown="1">
 
 I'm always interested in discussing:
 - Complex technical challenges
@@ -260,7 +260,7 @@ I'm always interested in discussing:
 
 Whether you're looking to implement AI solutions, optimize your cloud infrastructure, or need strategic technical leadership, I'm here to help.
 
-<div class="cta-section">
+<div class="cta-section" markdown="1">
 
 [View My Services](/services){: .btn-primary}
 [See My Portfolio](/portfolio){: .btn-secondary}
@@ -270,7 +270,7 @@ Whether you're looking to implement AI solutions, optimize your cloud infrastruc
 
 ---
 
-<div class="footer-note">
+<div class="footer-note" markdown="1">
 
 *"I'm passionate about driving technical excellence and building positive engineering culture. If you're tackling a complex challenge, let's connect."*
 

@@ -12,12 +12,12 @@ A showcase of my technical leadership, architecture design, and hands-on enginee
 
 ## Featured Projects
 
-<div class="project-grid">
+<div class="project-grid" markdown="1">
 
 ### 🤖 AI-Powered Supply Chain Platform
 **Heliux | 2023 - Present**
 
-<div class="project-details">
+<div class="project-details" markdown="1">
 
 **Role:** Senior Software Engineer / AI Consultant
 
@@ -52,7 +52,7 @@ A showcase of my technical leadership, architecture design, and hands-on enginee
 ### 📺 Netflix-like Video Streaming Platform
 **Laminar | 2022 - 2023**
 
-<div class="project-details">
+<div class="project-details" markdown="1">
 
 **Role:** Senior Software Engineer (Technical Lead)
 
@@ -85,7 +85,7 @@ A showcase of my technical leadership, architecture design, and hands-on enginee
 ### 📚 Political Document Archive with NLP
 **MasterBorn | 2020 - 2022**
 
-<div class="project-details">
+<div class="project-details" markdown="1">
 
 **Role:** Senior Software Engineer / Technical Lead
 
@@ -118,7 +118,7 @@ A showcase of my technical leadership, architecture design, and hands-on enginee
 ### 🚛 US Truck Transport Platform
 **MasterBorn | 2020 - 2022**
 
-<div class="project-details">
+<div class="project-details" markdown="1">
 
 **Role:** Senior Software Engineer / Technical Lead
 
@@ -150,7 +150,7 @@ A showcase of my technical leadership, architecture design, and hands-on enginee
 ### 🏥 Disease Detection Platform
 **Data Lions | 2018**
 
-<div class="project-details">
+<div class="project-details" markdown="1">
 
 **Role:** Lead Software Engineer
 
@@ -183,7 +183,7 @@ A showcase of my technical leadership, architecture design, and hands-on enginee
 ### 🌍 NYC Car Detection Platform
 **Order of Devs | Consulting**
 
-<div class="project-details">
+<div class="project-details" markdown="1">
 
 **Role:** Consultant Architect
 
@@ -215,7 +215,7 @@ A showcase of my technical leadership, architecture design, and hands-on enginee
 ### 📡 Canal+ Cloud Migration
 **Order of Devs | Consulting**
 
-<div class="project-details">
+<div class="project-details" markdown="1">
 
 **Role:** Cloud Architect / Consultant
 
@@ -247,7 +247,7 @@ A showcase of my technical leadership, architecture design, and hands-on enginee
 ### 🎮 AI Implementation for Dying Light
 **Techland | Freelance**
 
-<div class="project-details">
+<div class="project-details" markdown="1">
 
 **Role:** AI Engineer
 
@@ -277,7 +277,7 @@ A showcase of my technical leadership, architecture design, and hands-on enginee
 
 ## Open Source Contributions
 
-<div class="opensource-section">
+<div class="opensource-section" markdown="1">
 
 ### 🦆 DuckRS
 **Open-source ML library in Rust**
@@ -302,7 +302,7 @@ Creator and maintainer of high-performance machine learning library.
 
 ## Technical Leadership & Workshops
 
-<div class="workshops-section">
+<div class="workshops-section" markdown="1">
 
 ### Event Storming Workshops
 **UK Startups | Various Clients**
@@ -346,24 +346,24 @@ Explored the role of AI in modern software architecture and decision-making.
 
 ## By The Numbers
 
-<div class="stats-grid">
+<div class="stats-grid" markdown="1">
 
-<div class="stat-card">
+<div class="stat-card" markdown="1">
 <div class="stat-number">13+</div>
 <div class="stat-label">Years Experience</div>
 </div>
 
-<div class="stat-card">
+<div class="stat-card" markdown="1">
 <div class="stat-number">50+</div>
 <div class="stat-label">Projects Delivered</div>
 </div>
 
-<div class="stat-card">
+<div class="stat-card" markdown="1">
 <div class="stat-number">10+</div>
 <div class="stat-label">Technologies Mastered</div>
 </div>
 
-<div class="stat-card">
+<div class="stat-card" markdown="1">
 <div class="stat-number">100+</div>
 <div class="stat-label">Team Members Mentored</div>
 </div>
@@ -374,7 +374,7 @@ Explored the role of AI in modern software architecture and decision-making.
 
 ## Technologies & Tools
 
-<div class="tech-section">
+<div class="tech-section" markdown="1">
 
 ### Languages
 Python | Rust | TypeScript/JavaScript | Go | Scala | C++ | C#
@@ -403,7 +403,7 @@ React | Next.js | TailwindCSS
 
 ## Industry Experience
 
-<div class="industries-list">
+<div class="industries-list" markdown="1">
 
 - **FinTech** - Payment platforms, fraud detection, document processing
 - **Media & Entertainment** - Streaming platforms, content management
@@ -419,7 +419,7 @@ React | Next.js | TailwindCSS
 
 ## Let's Build Together
 
-<div class="cta-section">
+<div class="cta-section" markdown="1">
 
 Interested in working together on your next project?
 
