@@ -28,8 +28,8 @@ pnpm-debug.log*
 .vscode/
 
 # Lock files (keep one based on your package manager)
-# npm
-package-lock.json
+# npm - KEEP package-lock.json for Astro deployment
+# package-lock.json
 # yarn
 # yarn.lock
 # pnpm
