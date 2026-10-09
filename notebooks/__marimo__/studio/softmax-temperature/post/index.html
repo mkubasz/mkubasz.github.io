@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>What temperature does to a softmax · Mateusz Kubaszek</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Noto+Sans:ital,wght@0,400;0,700;1,400&family=Source+Code+Pro&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.19.0/dist/katex.min.css" integrity="sha384-3rdsX6e5mueWyoweR9NIVmtEsUkokpBT/0ALqKKIBMr9j4qhHkaIkAcGgsE6uVlp" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.19.0/dist/katex.min.js" integrity="sha384-QFFtAGzvvj+bfgCGxXJlNZZR1nXEZgvG8tDLCCY1F19xl20WlfTYgguB4VcNdxYk" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.19.0/dist/contrib/auto-render.min.js" integrity="sha384-bjyGPfbij8/NDKJhSGZNP/khQVgtHUE5exjm4Ydllo42FwIgYsdLO2lXGmRBf5Mz" crossorigin="anonymous"
+      onload="renderMathInElement(document.querySelector('.post-body'), {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]})"></script>
+    <style>
+      :root { --ink: #333; --navy: #253951; --band: #daeafa; --rule: #dadada; --grey: #f5f5f5; --muted: #595959; }
+      body { margin: 0; color: var(--ink); background: #fff; font: 1rem/1.8 "Noto Sans", sans-serif; }
+      a { color: inherit; text-decoration: none; border-bottom: 1px solid; }
+      .band { background: var(--band); border-bottom: 1px solid rgba(37, 57, 81, .15); }
+      .band div { max-width: 46rem; margin: 0 auto; padding: 0 1rem; display: flex; justify-content: space-between; align-items: center; height: 4.5rem; }
+      .band a { border: 0; color: var(--navy); font: 700 1.25rem Montserrat, sans-serif; }
+      .band a + a { font-size: .875rem; font-weight: 500; text-transform: uppercase; }
+      #app-shell { max-width: 46rem; margin: 0 auto; padding: 3rem 1rem 4rem; }
+      h1, h2 { font-family: Montserrat, sans-serif; font-weight: 700; line-height: 1.4; }
+      h1 { font-size: 2.25rem; margin: 0 0 .5rem; }
+      h2 { font-size: 1.5rem; margin: 2.5rem 0 1rem; border-bottom: 1px solid var(--rule); padding-bottom: .5rem; }
+      .meta { color: var(--muted); font: 500 .8125rem Montserrat, sans-serif; text-transform: uppercase; letter-spacing: .05em; }
+      .abstract { background: var(--grey); border-left: 4px solid var(--navy); padding: 1rem 1.25rem; margin: 2rem 0; }
+      .abstract b { font-family: Montserrat, sans-serif; }
+      figure { margin: 2rem 0; padding: 1.25rem; border: 2px solid var(--grey); }
+      figcaption { color: var(--muted); font-size: .875rem; margin-top: .75rem; }
+      code { font-family: "Source Code Pro", monospace; color: #c0341d; background: #fcefed; border-radius: 3px; padding: .1rem .35rem; }
+      footer { border-top: 1px solid var(--rule); margin-top: 3rem; padding-top: 1rem; color: var(--muted); font-size: .875rem; }
+    </style>
+  </head>
+  <body>
+    <nav class="band"><div><a href="https://mkubasz.github.io/">Mateusz Kubaszek</a><a href="https://mkubasz.github.io/blog/">← Blog</a></div></nav>
+    <main id="app-shell">
+      <article class="post-body">
+        <p class="meta">October 9, 2026 · LLMs · Sampling</p>
+        <h1>What temperature does to a softmax</h1>
+
+        <div class="abstract">
+          <b>Abstract.</b> Temperature is the one sampling knob everyone touches and few look at.
+          It rescales logits before the softmax, which flattens or sharpens the next-token
+          distribution. Move the slider below and watch the entropy change.
+        </div>
+
+        <h2>1. Definition</h2>
+        <p>
+          A language model emits a vector of logits $z \in \mathbb{R}^V$, one per token in the
+          vocabulary. Sampling with temperature $T &gt; 0$ draws the next token from
+        </p>
+        <p>$$p_i(T) = \frac{\exp(z_i / T)}{\sum_{j=1}^{V} \exp(z_j / T)}.$$</p>
+        <p>
+          At $T = 1$ this is the plain softmax. As $T \to 0$ all mass moves to the arg-max
+          (greedy decoding); as $T \to \infty$ the distribution approaches uniform.
+        </p>
+
+        <h2>2. Experiment</h2>
+        <p>
+          Six tokens with fixed logits <code>[3.2, 2.9, 2.1, 1.4, 0.6, -1.0]</code>. The chart is
+          computed in Python by the notebook behind this post and pre-rendered for each temperature.
+        </p>
+        <figure>
+          <marimo-cell name="temperature"></marimo-cell>
+          <marimo-cell name="distribution"></marimo-cell>
+          <figcaption>
+            <b>Figure 1.</b> Next-token distribution $p(T)$. <marimo-cell name="summary"></marimo-cell>
+          </figcaption>
+        </figure>
+
+        <h2>3. Takeaway</h2>
+        <p>
+          Temperature does not change the ranking of tokens, only how much probability the tail
+          receives. Low $T$ trades diversity for consistency; high $T$ trades coherence for novelty.
+          Most production defaults sit between $0.2$ and $1.0$.
+        </p>
+
+        <footer>Built with <a href="https://marimo-team.github.io/marimo-studio/">marimo-studio</a> from <code>notebooks/softmax-temperature.py</code>.</footer>
+      </article>
+    </main>
+  </body>
+</html>

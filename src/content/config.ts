@@ -8,6 +8,8 @@ const blog = defineCollection({
     excerpt: z.string().optional(),
     categories: z.array(z.string()).optional(),
     tags: z.array(z.string()).optional(),
+    // Body lives in notebooks/<slug>.py, exported by marimo-studio to /blog/<slug>/.
+    notebook: z.boolean().optional(),
   }),
 });
 

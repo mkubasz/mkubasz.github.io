@@ -1,5 +1,8 @@
 # build output
 dist/
+
+# marimo-studio exports (scripts/export-notebooks.sh)
+public/blog/
 .output/
 
 # generated types
@@ -34,3 +37,5 @@ pnpm-debug.log*
 # yarn.lock
 # pnpm
 # pnpm-lock.yaml
+notebooks/__marimo__/cache/
+notebooks/__marimo__/session/

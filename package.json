@@ -6,6 +6,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
+    "notebooks": "sh scripts/export-notebooks.sh",
     "cv:pdf": "node scripts/generate-cv-pdf.mjs",
     "preview": "astro preview",
     "astro": "astro"

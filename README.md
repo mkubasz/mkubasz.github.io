@@ -22,6 +22,25 @@ The command writes the final A4 document to
 `output/pdf/Mateusz-Kubaszek-CV.pdf` and copies it to `public/` so it can be
 downloaded from the deployed site.
 
+## Notebook blog posts (marimo-studio)
+
+A post is a [marimo](https://marimo.io/) notebook plus a
+[marimo-studio](https://marimo-team.github.io/marimo-studio/) view named `post`:
+
+- `notebooks/<slug>.py` computes figures and values
+- `notebooks/__marimo__/studio/<slug>/post/index.html` holds the prose and places cells with `<marimo-cell name="...">`
+- `notebooks/__marimo__/studio/<slug>/post/states.yaml` lists the control values to pre-render
+- `src/content/blog/<slug>.md` holds only the frontmatter, with `notebook: true`, so the post shows up in `/blog`
+
+```bash
+# write and preview
+uvx --with marimo-studio==0.3.0 marimo edit notebooks/<slug>.py --sandbox --watch
+# new post: create the view, then copy index.html/states.yaml from an existing post
+uvx marimo-studio==0.3.0 view create post --target notebooks/<slug>.py
+# export everything to public/blog/<slug>/ (CI runs this before the Astro build)
+npm run notebooks
+```
+
 ## About me?
 
 Seasoned Software Engineer with over 12 years of expertise in distributed systems, cloud computing, and data engineering. My career is defined by successfully leading cross-functional teams in designing and implementing innovative, scalable solutions that drive business value.
@@ -46,7 +65,7 @@ I thrive on tackling complex challenges and am passionate about leveraging emerg
  - Data Engineering: Elasticsearch, ClickHouse, Apache Spark, Apache Flink, Airflow/Prefect, dbt
  - Frontend: React/ Next.js/ TailwindCSS
 
-## 👩🏼‍💻 Technical Experience
+## Technical Experience
 
 **Consultant Software Architect** @ Order of Devs _(September 2018 - Present)_ <br>
 
@@ -146,7 +165,7 @@ Databases(MySQL, MsSQL and MongoDB), scripts in Jenkins(Groovy).
   - Improved Regex in Android Studio IDE in search box
 <br><br>
     
-## 🗞 Youtuber Experience
+## Youtuber Experience
 
 _This section only accounts for work done post-career change._
 <br><br>
@@ -155,7 +174,7 @@ _This section only accounts for work done post-career change._
 Online publications that provide insights into the architecture, programming, and ML topics.
 <br><br>
 
-<!-- ## 📌 On The Side
+<!-- ## On The Side
 
 **Co-Organizer** @ [a](a) _(Jun 2019 - Present)_<br>
  A
@@ -163,7 +182,7 @@ Online publications that provide insights into the architecture, programming, an
   <br><br>
   <br><br> -->
 
-## 🎤 Public Speaking
+## Public Speaking
     
 ### Recent Appearances
 
@@ -176,18 +195,18 @@ Topic: Distributed
 - ** Speaker in Architecture IT Conference** @[YouTube](https://youtu.be/Dz-BtCmbWdo?t=567) _(2023)_ <br>
 Topic: AI in Architecture
 <br><br>
-## 🏆 Accomplishments
+## Accomplishments
 
 **The National Collegiate Programming Contest** @ [AMPPZZ](http://amppz.mimuw.edu.pl/) _(2014, 2015, 2016)_
 <br><br>
 
-## 💬 Languages
+## Languages
 
 **Polish**: Native <br>
 **English**: B2+
 <br><br>
 
-## 👩🏼‍🎓 Education
+## Education
 
 **Master of Engineering** in Technical University in Opole<br>
 Thesis: Comparative analysis of the implementation of selected Data Science algorithms in Rust and Python<br>
