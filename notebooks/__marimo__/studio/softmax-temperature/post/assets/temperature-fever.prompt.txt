@@ -1,0 +1,10 @@
+Generated with the built-in image_gen tool. The PNG is the original output. A JPEG delivery encoding is embedded in the post as a data URL for Studio export; no creative edits were applied.
+
+Use case: illustration-story
+Asset type: humorous editorial illustration inside an English educational blog about LLM sampling temperature.
+Primary request: a funny hand-drawn three-panel comic of the same little AI robot at a laptop responding to a request to add a green button to a web page, becoming feverish and deliriously imaginative as sampling temperature rises.
+Style/medium: elegant pen-and-ink sketchbook drawing with loose confident hand-drawn lines, soft watercolor accents, paper-white background, legible handwritten English lettering. Match an academic blog with navy ink and muted pastel blue, sage green and warm coral. Horizontal composition, three equally sized panels, generous margins.
+Panel 1: calm cool robot with small blue thermometer, laptop screen shows one simple green rectangular Save button. Heading exact text: "Low T". Tiny speech bubble exact text: "One green button."
+Panel 2: relaxed robot with a medium thermometer, laptop shows a tidy small window containing a rounded green Save button. Heading exact text: "Medium T". Speech bubble exact text: "A little personality."
+Panel 3: flushed feverish robot, comic forehead thermometer and a tiny ice pack, dizzy spiral antenna, excited expression; laptop screen shows a wildly overcomplicated neon-green spaceship-shaped button surrounded by stars and a rainbow. Heading exact text: "High T". Speech bubble exact text: "What if it flies?"
+Constraints: only these three short headings and three speech bubbles, no numerical probabilities, no equations, no medical advice, no brand logos or watermarks. The joke concerns a software sampling metaphor. Robot friendly and expressive. Clear story readable at blog width.

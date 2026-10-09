@@ -13,6 +13,23 @@ Match the site's academic look: Montserrat headings, Noto Sans body, pastel
 `--band` header, KaTeX for `$...$` math. Copy this view project when starting
 a new post.
 
+Teach from practical API motivation through tokens, logits, normalization,
+temperature comparisons, sequential generation, and task-specific agent settings.
+Keep numerical examples explicitly illustrative. Temperature changes sampling,
+not dropout, factual correctness, or token ranking. The notebook owns all
+fixture scores, computed tables and charts. Prepare every scenario/temperature
+combination in `states.yaml`. Handwritten educational sketches use Caveat;
+diagram panels must remain readable on phones.
+Use a conversational, accessible English narrative centered on an agent's brief.
+Charts show readable token labels and rounded chances, with starting scores once
+per example. Avoid repeated scaled-score tables, entropy, odds arithmetic, and
+top-p/top-k detail. Explain the one formula with visual numerator/denominator
+labels. Agent guidance names roles and explains why a setting suits the task.
+Distinguish a generated detour from useful additional context: more context does
+not automatically cause drift, and temperature does not grant tool authority.
+ The fever comic's source and
+generation prompt are in `assets/`; embed its image data in `index.html` for export.
+
 ## Use the supplied Studio integration
 
 `index.html` starts with one `<marimo-cell>` host for each enabled notebook cell

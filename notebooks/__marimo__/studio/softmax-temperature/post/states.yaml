@@ -1,5 +1,7 @@
-# A slider built with steps= takes the step index, not the value: 0 -> T=0.25 ... 4 -> T=4.0
+# Frontend values: dropdown labels are one-item arrays; slider steps use indexes.
+# Index 0 -> T=0.2, 1 -> 0.7, 2 -> 1.0, 3 -> 1.4, 4 -> 2.0.
 schema: marimo-export.states.v1
 default_state: matrix-000002
 matrix:
+  scenario: [[Add a green button], [Add a settings window], [Write conversation scenarios], [Draft an email]]
   temperature: [0, 1, 2, 3, 4]
