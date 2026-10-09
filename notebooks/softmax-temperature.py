@@ -160,7 +160,7 @@ def distribution(
     )
     mo.Html(
         f'<p style="font-size:14px"><b>Your agent’s task:</b> {escape(selected["prompt"])}</p>'
-        f'<div role="group" aria-label="Chances for the next token at temperature {temperature.value:g}. Each pale track represents 100 percent.">{_rows}</div>'
+        f'<div role="group" aria-label="Probabilities of the next token at temperature {temperature.value:g}. Each pale track is 100 percent.">{_rows}</div>'
     )
     return (probs,)
 
@@ -168,10 +168,10 @@ def distribution(
 @app.cell
 def summary(mo, probs, temperature, tokens):
     mo.md(
-        f"At **T = {temperature.value:g}**, **`{tokens[0]}`** has about a **{probs[0]:.0%}** chance. "
-        + ("The agent strongly favors the familiar next step." if temperature.value < .5
-           else "Other routes have a little more room." if temperature.value <= 1
-           else "More alternatives are in play, including ones that may stray from the brief.")
+        f"At **T = {temperature.value:g}**, **`{tokens[0]}`** has a probability of about **{probs[0]:.0%}**. "
+        + ("Below 1, the top token gets more probability than in the model's own distribution." if temperature.value < 1
+           else "At 1, the logits are unchanged: this is the model's own distribution." if temperature.value == 1
+           else "Above 1, probability spreads to lower-ranked tokens, including ones that do not fit the task.")
     )
     return
 
@@ -201,19 +201,19 @@ def primer(escape, mo, toy_logits, toy_tokens):
         for i, (token, z) in enumerate(zip(toy_tokens, toy_logits))
     )
     _panels = [
-        '<text x="15" y="35" font-size="27">1. A piece of text</text>'
+        '<text x="15" y="35" font-size="27">1. A token</text>'
         '<text x="18" y="80" font-size="22">Text so far: &lt;</text>'
         '<path d="M19 104 Q104 99 201 106 L203 153 Q107 159 18 153 Z" fill="#deebf4" stroke="#253951" stroke-width="1.6"/>'
         '<text x="70" y="137" font-size="29">button</text>'
-        '<text x="18" y="196" font-size="22">one possible next piece</text>',
-        '<text x="15" y="35" font-size="27">2. A score</text>'
-        '<text x="18" y="67" font-size="20">candidate</text><text x="156" y="67" font-size="20">score</text>'
-        + _score_rows + '<text x="18" y="214" font-size="21">higher = more favored</text>',
-        '<text x="15" y="35" font-size="27">3. A chance</text>'
+        '<text x="18" y="196" font-size="22">one possible next token</text>',
+        '<text x="15" y="35" font-size="27">2. A logit</text>'
+        '<text x="18" y="67" font-size="20">token</text><text x="156" y="67" font-size="20">logit</text>'
+        + _score_rows + '<text x="18" y="214" font-size="21">higher = preferred</text>',
+        '<text x="15" y="35" font-size="27">3. A probability</text>'
         '<text x="18" y="86" font-size="27">softmax</text>'
         '<path d="M23 109 Q98 124 187 109 M174 103 L188 109 L176 120" fill="none" stroke="#537d9b" stroke-width="2"/>'
-        '<text x="18" y="162" font-size="22">scores → chances</text>'
-        '<text x="18" y="214" font-size="26" fill="#46775d">100% to share</text>',
+        '<text x="18" y="162" font-size="20">logits → probabilities</text>'
+        '<text x="18" y="214" font-size="26" fill="#46775d">adds up to 100%</text>',
     ]
     mo.Html(
         '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px">'
@@ -222,8 +222,8 @@ def primer(escape, mo, toy_logits, toy_tokens):
             '<rect width="220" height="240" rx="6" fill="#f9faf8"/>'
             f'<g fill="#253951" font-family="Caveat,cursive" font-size="24">{panel}</g></svg>'
             for label, panel in zip(
-                ["A token is a piece of text.", "A logit is a score, not a percentage.",
-                 "Softmax turns scores into chances that add up to 100 percent."], _panels
+                ["A token is a piece of text.", "A logit is an unnormalized score, not a percentage.",
+                 "Softmax turns logits into probabilities that add up to 100 percent."], _panels
             )
         ) + '</div>'
     )
@@ -243,8 +243,8 @@ def normalization(escape, mo, softmax, toy_logits, toy_tokens):
         for i, (p, color) in enumerate(zip(_probs, ["#46775d", "#648bad", "#ba684f"]))
     )
     mo.Html(f"""
-    <table style="width:100%;border-collapse:collapse;text-align:right;font:15px/2.2 'Noto Sans',sans-serif" aria-label="Three example scores turned into chances">
-      <thead><tr><th style="text-align:left">Next piece</th><th>Score</th><th>Chance</th></tr></thead>
+    <table style="width:100%;border-collapse:collapse;text-align:right;font:15px/2.2 'Noto Sans',sans-serif" aria-label="Three example logits turned into probabilities">
+      <thead><tr><th style="text-align:left">Next token</th><th>Logit</th><th>Probability</th></tr></thead>
       <tbody>{_rows}</tbody>
     </table>
     <svg viewBox="0 0 700 65" role="img" aria-label="One hundred percent shared between button, a, and canvas" style="display:block;width:100%;height:auto;margin-top:16px">{_segments}</svg>
@@ -267,7 +267,7 @@ def comparison(
     for _title, _t, _color, _sample, _description in zip(
         ["Low", "Medium", "High"], comparison_temperatures,
         ["#537d9b", "#46775d", "#ba684f"], [0, 2, 4],
-        ["The familiar route gets most of the room.", "More ways to get there.", "More room for an unexpected turn."],
+        ["The top token gets most of the probability.", "Probability spreads to more tokens.", "Lower-ranked tokens are picked more often."],
     ):
         _probs = softmax(raw_logits, _t)
         _bars = "".join(
@@ -281,8 +281,8 @@ def comparison(
         <div style="border-top:4px solid {_color};background:#f7f8f8;padding:14px;min-width:0">
           <h3 style="font:700 18px/1.4 Montserrat,sans-serif;margin:0;color:{_color}">{_title} · T = {_t:g}</h3>
           <p style="font-size:13px;line-height:1.6;min-height:3.2em">{_description}</p>
-          <svg viewBox="0 0 190 {len(tokens) * 44}" role="img" aria-label="{_title} temperature: next-token chances, rounded" style="width:100%;height:auto;display:block;font-family:Noto Sans,sans-serif">{_bars}</svg>
-          <p style="font-size:13px;margin:12px 0 5px"><b>A possible result</b><br>The next piece is <b>{escape(tokens[_sample])}</b>:</p>
+          <svg viewBox="0 0 190 {len(tokens) * 44}" role="img" aria-label="{_title} temperature: next-token probabilities, rounded" style="width:100%;height:auto;display:block;font-family:Noto Sans,sans-serif">{_bars}</svg>
+          <p style="font-size:13px;margin:12px 0 5px"><b>One possible pick</b><br>The next token is <b>{escape(tokens[_sample])}</b>, about {_probs[_sample]:.0%} likely at this temperature:</p>
           <pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 'Source Code Pro',monospace;background:#fff;padding:10px;margin:0">{escape(selected['continuations'][_sample])}</pre>
           <p style="font-size:13px;line-height:1.6;margin-bottom:0">{escape(selected['outcomes'][_sample])}</p>
         </div>
@@ -291,7 +291,7 @@ def comparison(
     mo.Html(
         f'<p style="font-size:14px"><b>Prompt:</b> {escape(selected["prompt"])}<br>'
         f'<b>Text so far:</b> <code>{escape(selected["prefix"])}</code></p>'
-        f'<p style="font-size:13px;color:#595959"><b>Same starting scores in every column:</b><br>{_scores}</p>'
+        f'<p style="font-size:13px;color:#595959"><b>Same logits in every column:</b><br>{_scores}</p>'
         '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px">'
         + "".join(_cards) + '</div>'
     )
@@ -306,12 +306,12 @@ def odds(comparison_temperatures, escape, mo, raw_logits, tokens):
     for _title, _t, _color, _caption in zip(
         ["Low", "Medium", "High"], comparison_temperatures,
         ["#537d9b", "#46775d", "#ba684f"],
-        ["a clearer favorite", "a smaller advantage", "a closer contest"],
+        ["a large gap", "a smaller gap", "the smallest gap"],
     ):
         _gap = (_delta / _t) / _largest_gap * 112
         _left, _right = 100 - _gap / 2, 100 + _gap / 2
         _panels.append(
-            f'<svg viewBox="0 0 200 150" role="img" aria-label="{_title} temperature: {_caption}. The distance shows the scaled score gap on a shared scale." style="width:100%;height:auto;display:block">'
+            f'<svg viewBox="0 0 200 150" role="img" aria-label="{_title} temperature: {_caption}. The distance shows the logit gap divided by T, on a shared scale." style="width:100%;height:auto;display:block">'
             '<rect width="200" height="150" fill="#f9faf8" rx="4"/>'
             f'<g font-family="Caveat,cursive" fill="#253951"><text x="12" y="29" font-size="24">{_title} · T = {_t:g}</text>'
             f'<path d="M{_left:.2f} 72 H{_right:.2f}" stroke="{_color}" stroke-width="3"/>'
@@ -320,8 +320,8 @@ def odds(comparison_temperatures, escape, mo, raw_logits, tokens):
             f'<text x="12" y="133" font-size="22">{_caption}</text></g></svg>'
         )
     mo.Html(
-        f'<p style="font-size:14px"><b>{escape(tokens[0])}</b>: score {raw_logits[0]:g} · '
-        f'<b>{escape(tokens[1])}</b>: score {raw_logits[1]:g}</p>'
+        f'<p style="font-size:14px"><b>{escape(tokens[0])}</b>: logit {raw_logits[0]:g} · '
+        f'<b>{escape(tokens[1])}</b>: logit {raw_logits[1]:g}</p>'
         '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px">'
         + "".join(_panels) + '</div>'
     )
@@ -340,10 +340,10 @@ def flattening(examples, mo, np, softmax):
             for j, (p, label) in enumerate(zip(_p, _labels))
         )
         _panels.append(
-            f'<svg viewBox="0 0 340 252" role="img" aria-label="{"Low temperature: one tall probability peak" if _i == 0 else "High temperature: more room for alternatives"}" style="width:100%;height:auto;display:block">'
+            f'<svg viewBox="0 0 340 252" role="img" aria-label="{"Low temperature, T = 0.2: one token dominates" if _i == 0 else "High temperature, T = 1.4: a flatter distribution"}" style="width:100%;height:auto;display:block">'
             '<rect width="340" height="252" rx="6" fill="#f9faf8"/>'
             f'<g font-family="Caveat,cursive" fill="#253951"><text x="18" y="34" font-size="30">{"Low temperature" if _i == 0 else "High temperature"}</text>'
-            f'<text x="18" y="65" font-size="22">{"one strong favorite" if _i == 0 else "room for alternatives"}</text>'
+            f'<text x="18" y="65" font-size="22">{"T = 0.2: one token dominates" if _i == 0 else "T = 1.4: a flatter distribution"}</text>'
             f'{_bars}<path d="M15 211 H319" stroke="#253951" stroke-width="1.5"/></g></svg>'
         )
     mo.Html(

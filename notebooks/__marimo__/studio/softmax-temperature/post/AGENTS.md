@@ -15,14 +15,19 @@ a new post.
 
 Teach from practical API motivation through tokens, logits, normalization,
 temperature comparisons, sequential generation, and task-specific agent settings.
-Keep numerical examples explicitly illustrative. Temperature changes sampling,
-not dropout, factual correctness, or token ranking. The notebook owns all
+Keep numerical examples explicitly illustrative. Temperature changes sampling;
+it does not change factual correctness or token ranking. Say that T = 1 leaves
+logits unchanged and is the default in many APIs. The notebook owns all
 fixture scores, computed tables and charts. Prepare every scenario/temperature
 combination in `states.yaml`. Handwritten educational sketches use Caveat;
 diagram panels must remain readable on phones.
-Use a conversational, accessible English narrative centered on an agent's brief.
-Charts show readable token labels and rounded chances, with starting scores once
-per example. Avoid repeated scaled-score tables, entropy, odds arithmetic, and
+Use a plain English narrative centered on one agent task. Name each mechanism
+with its standard term (token, logit, probability, softmax, temperature) and one
+short explanation at first use, then keep the term. A metaphor may support a
+named mechanism, never replace it; the friendly tone comes from the running
+example, not from words such as room, freedom, path, route or journey. Headings
+state what the section shows. Charts show readable token labels and rounded
+probabilities, with logits once per example. Avoid repeated scaled-score tables, entropy, odds arithmetic, and
 top-p/top-k detail. Explain the one formula with visual numerator/denominator
 labels. Agent guidance names roles and explains why a setting suits the task.
 Distinguish a generated detour from useful additional context: more context does
