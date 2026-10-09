@@ -1,7 +1,7 @@
 ---
 title: "What temperature does to a softmax"
 date: 2026-10-09
-excerpt: "Why your coding agent might build a green button—or a spaceship. A friendly visual guide to temperature, tokens and softmax, with simple charts and practical agent roles."
+excerpt: "How temperature rescales logits before softmax, shown on one coding-agent request, with interactive charts and per-task settings for agents."
 tags: [LLMs, sampling]
 notebook: true
 ---
