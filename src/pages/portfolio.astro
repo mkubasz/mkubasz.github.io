@@ -12,6 +12,28 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <h2>Featured Projects</h2>
 
   <div class="project-grid">
+    <h3>aiwatcher: Observability and FTI Platform for AI Agents</h3>
+    <p><strong>Creator | 2026 - Present</strong></p>
+
+    <div class="project-details">
+      <p><strong>Role:</strong> Creator and architect</p>
+
+      <p><strong>Challenge:</strong> Agent runs are hard to debug after the fact, and the feature, training and inference (FTI) steps behind a model usually live in separate tools.</p>
+
+      <p><strong>Solution:</strong></p>
+      <ul>
+        <li>Agents publish events to a durable log; a Rust projector folds them into traces, metrics and a live view</li>
+        <li>Spans are derived by pure functions, so a redelivered event never creates a duplicate</li>
+        <li>FTI pipelines in the same platform: data curation, training, and evaluation reports with kept evidence</li>
+        <li>Python, TypeScript and Go SDKs</li>
+        <li>Workshop modules on LLMs and agent systems run inside the platform</li>
+      </ul>
+
+      <p><strong>Technologies:</strong> Rust, Python, TypeScript, React, VictoriaTraces, VictoriaMetrics</p>
+    </div>
+
+    <hr />
+
     <h3>AI-Powered Supply Chain Platform</h3>
     <p><strong>Heliux | 2023 - 2025</strong></p>
 
