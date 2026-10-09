@@ -12,8 +12,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <h2>Featured Projects</h2>
 
   <div class="project-grid">
-    <h3>🤖 AI-Powered Supply Chain Platform</h3>
-    <p><strong>Heliux | 2023 - Present</strong></p>
+    <h3>aiwatcher: Observability and FTI Platform for AI Agents</h3>
+    <p><strong>Creator | 2026 - Present</strong></p>
+
+    <div class="project-details">
+      <p><strong>Role:</strong> Creator and architect</p>
+
+      <p><strong>Challenge:</strong> Agent runs are hard to debug after the fact, and the feature, training and inference (FTI) steps behind a model usually live in separate tools.</p>
+
+      <p><strong>Solution:</strong></p>
+      <ul>
+        <li>Agents publish events to a durable log; a Rust projector folds them into traces, metrics and a live view</li>
+        <li>Spans are derived by pure functions, so a redelivered event never creates a duplicate</li>
+        <li>FTI pipelines in the same platform: data curation, training, and evaluation reports with kept evidence</li>
+        <li>Python, TypeScript and Go SDKs</li>
+        <li>Workshop modules on LLMs and agent systems run inside the platform</li>
+      </ul>
+
+      <p><strong>Technologies:</strong> Rust, Python, TypeScript, React, VictoriaTraces, VictoriaMetrics</p>
+    </div>
+
+    <hr />
+
+    <h3>AI-Powered Supply Chain Platform</h3>
+    <p><strong>Heliux | 2023 - 2025</strong></p>
 
     <div class="project-details">
       <p><strong>Role:</strong> Senior Software Engineer / AI Consultant</p>
@@ -49,7 +71,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     <hr />
 
-    <h3>📺 Netflix-like Video Streaming Platform</h3>
+    <h3>Netflix-like Video Streaming Platform</h3>
     <p><strong>Laminar | 2022 - 2023</strong></p>
 
     <div class="project-details">
@@ -86,7 +108,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     <hr />
 
-    <h3>📚 Political Document Archive with NLP</h3>
+    <h3>Political Document Archive with NLP</h3>
     <p><strong>MasterBorn | 2020 - 2022</strong></p>
 
     <div class="project-details">
@@ -128,7 +150,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   <div class="stats-grid">
     <div class="stat-card">
-      <div class="stat-number">13+</div>
+      <div class="stat-number">14+</div>
       <div class="stat-label">Years Experience</div>
     </div>
 

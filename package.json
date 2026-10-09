@@ -6,6 +6,8 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
+    "notebooks": "sh scripts/export-notebooks.sh",
+    "cv:pdf": "node scripts/generate-cv-pdf.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -16,6 +18,8 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
+    "pdf-lib": "^1.17.1",
+    "playwright": "^1.62.0",
     "typescript": "^5.7.2"
   }
 }

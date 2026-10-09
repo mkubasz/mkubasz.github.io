@@ -1,0 +1,319 @@
+---
+const contact = {
+  email: "m.kubaszek@protonmail.com",
+  linkedin: "linkedin.com/in/mateusz-kubaszek",
+  github: "github.com/mkubasz",
+  location: "Opole, Poland",
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="CV of Mateusz Kubaszek, AI Architect, AI Consultant, and Technical Leader."
+    />
+    <title>Mateusz Kubaszek - AI Architect & Technical Leader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/cv.css" />
+  </head>
+  <body>
+    <aside class="screen-toolbar" aria-label="CV actions">
+      <a href="/" class="toolbar-link">&lt;- Portfolio</a>
+      <button type="button" onclick="window.print()">Save as PDF</button>
+    </aside>
+
+    <main class="cv-document">
+      <article class="cv-page page-one">
+        <header class="cv-header">
+          <div>
+            <p class="eyebrow">Curriculum Vitae</p>
+            <h1>Mateusz Kubaszek</h1>
+            <p class="headline">AI Architect &amp; Consultant | Technical Leader</p>
+          </div>
+          <div class="contact">
+            <a href={`mailto:${contact.email}`}>{contact.email}</a>
+            <span>{contact.location}</span>
+            <a href="https://github.com/mkubasz">{contact.github}</a>
+            <a href="https://www.linkedin.com/in/%F0%9F%A7%99-mateusz-kubaszek-58306466/">
+              {contact.linkedin}
+            </a>
+          </div>
+        </header>
+
+        <section class="profile-panel">
+          <p>
+            AI-focused software architect with <strong>14+ years of experience</strong>
+            and a track record of taking AI initiatives from business problem to
+            production. Designs LLM-powered applications, AI agent workflows, ML
+            platforms, and the cloud and data foundations behind them.
+          </p>
+          <div class="profile-points">
+            <span><strong>Applied AI</strong> LLMs, agents, vector search</span>
+            <span><strong>AI Delivery</strong> LLMOps, observability, MLOps</span>
+            <span><strong>Foundations</strong> AWS, GCP, data platforms</span>
+          </div>
+        </section>
+
+        <section>
+          <h2>Core expertise</h2>
+          <div class="skills-grid">
+            <div class="ai-skill">
+              <h3>AI, LLMs &amp; Machine Learning</h3>
+              <p>OpenAI, Hugging Face, LangChain, LlamaIndex, AI agents, vector search, Qdrant, LLMOps, agent observability, MLOps</p>
+            </div>
+            <div>
+              <h3>AI &amp; Software Architecture</h3>
+              <p>Production AI systems, distributed systems, microservices, event-driven architecture, DDD, CQRS, event sourcing</p>
+            </div>
+            <div>
+              <h3>Data &amp; AI Platforms</h3>
+              <p>Spark, Flink, Airflow, dbt, Elasticsearch, ClickHouse, AWS, GCP, Kubernetes, Terraform, GitOps, FinOps</p>
+            </div>
+            <div>
+              <h3>Hands-on Engineering</h3>
+              <p>Python, Rust, TypeScript/JavaScript, Go, FastAPI, Node.js, TensorFlow, PyTorch, React, Next.js</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="experience">
+          <div class="section-heading">
+            <h2>Professional experience</h2>
+            <span>Selected roles</span>
+          </div>
+
+          <div class="role">
+            <div class="role-meta">
+              <h3>Data Engineer / AI Engineer</h3>
+              <p>HealthJoy</p>
+              <time>Sep 2025 - Present</time>
+            </div>
+            <ul>
+              <li>Build real-time communication systems supporting responsive, user-facing healthcare experiences.</li>
+              <li>Train and adapt small language models while building LLMOps workflows for evaluation, deployment, and monitoring.</li>
+              <li>Develop observable agentic systems for integrations and conversational user chat, applying FinOps to control cloud and AI inference costs.</li>
+            </ul>
+          </div>
+
+          <div class="role">
+            <div class="role-meta">
+              <h3>Consultant Software Architect</h3>
+              <p>Order of Devs</p>
+              <time>Sep 2018 - Present</time>
+            </div>
+            <ul>
+              <li>Advise startups and enterprises on AI strategy, production AI architecture, cloud, and data platforms.</li>
+              <li>Facilitated Event Storming workshops and translated business needs into technical roadmaps.</li>
+              <li>Led a Canal+ cloud migration using AWS, Spark, and Snowflake.</li>
+              <li>Designed a computer-vision platform for vehicle detection and led development of the open-source DuckRS ML library in Rust.</li>
+            </ul>
+          </div>
+
+          <div class="role">
+            <div class="role-meta">
+              <h3>Senior Software Engineer / AI Consultant</h3>
+              <p>Heliux</p>
+              <time>Sep 2023 - Aug 2025</time>
+            </div>
+            <ul>
+              <li>Design and deliver LLM-powered solutions and AI agent workflows for supply-chain and product-management use cases.</li>
+              <li>Integrate foundation models, vector search, and custom business systems into two key product modules.</li>
+              <li>Own AI solution architecture, AWS infrastructure, CI/CD, and hands-on Python, Rust, and Node.js delivery.</li>
+            </ul>
+          </div>
+
+        </section>
+
+        <footer class="page-footer">
+          <span>Mateusz Kubaszek | CV</span>
+          <span>01 / 03</span>
+        </footer>
+      </article>
+
+      <article class="cv-page page-two">
+        <section class="experience continued">
+          <div class="section-heading">
+            <h2>Professional experience</h2>
+            <span>Continued</span>
+          </div>
+
+          <div class="role">
+            <div class="role-meta">
+              <h3>Senior Software Engineer</h3>
+              <p>Laminar</p>
+              <time>Sep 2022 - Oct 2023</time>
+            </div>
+            <ul>
+              <li>Built a video-streaming platform and its content-management and orchestration systems.</li>
+              <li>Led architecture planning, AWS infrastructure, CI/CD, and architecture workshops.</li>
+              <li>Worked across Node.js, Python, Spark, dbt, Akamai, Terraform, AWS, GCP, and Kubernetes.</li>
+            </ul>
+          </div>
+
+          <div class="role">
+            <div class="role-meta">
+              <h3>Senior Software Engineer / Technical Lead</h3>
+              <p>MasterBorn</p>
+              <time>Jan 2020 - Mar 2022</time>
+            </div>
+            <ul>
+              <li>Led delivery of an AWS serverless NLP platform for classifying, archiving, and searching political documents.</li>
+              <li>Architected APIs, scraping systems, and serverless products for US transport, travel, and FinTech clients.</li>
+              <li>Combined hands-on Python and TypeScript development with architecture and team leadership.</li>
+            </ul>
+          </div>
+
+          <div class="role compact">
+            <div class="role-meta">
+              <h3>Senior Software Engineer</h3>
+              <p>Nozbe</p>
+              <time>Jul 2019 - Jan 2020</time>
+            </div>
+            <ul>
+              <li>Enhanced a team-productivity platform and built ML infrastructure for productivity features.</li>
+              <li>Worked on Kubernetes, AWS, Python, TensorFlow, Flutter, and Node.js systems.</li>
+            </ul>
+          </div>
+
+          <div class="role compact">
+            <div class="role-meta">
+              <h3>Senior Software Engineer</h3>
+              <p>Bright Coders Factory</p>
+              <time>Sep 2018 - Jul 2019</time>
+            </div>
+            <ul>
+              <li>Architected an MVP for Roche and platforms for Spanish and Norwegian FinTech clients.</li>
+              <li>Delivered systems using .NET Core, AWS, Azure, Kubernetes, Kotlin, Python, and Node.js.</li>
+            </ul>
+          </div>
+
+          <div class="role compact">
+            <div class="role-meta">
+              <h3>Lead Software Engineer</h3>
+              <p>Data Lions</p>
+              <time>Jan 2018 - Nov 2018</time>
+            </div>
+            <ul>
+              <li>Planned and implemented architecture for a disease-detection platform.</li>
+              <li>Optimized computer-vision models for disease detection and supported a mobile data-visualization application.</li>
+            </ul>
+          </div>
+
+          <div class="role compact">
+            <div class="role-meta">
+              <h3>Software Engineer</h3>
+              <p>Nokia</p>
+              <time>Mar 2017 - Jan 2018</time>
+            </div>
+            <ul>
+              <li>Implemented routing-system architecture for 5G technology and built a network test platform.</li>
+              <li>Served as Scrum Master alongside Python and C++ engineering responsibilities.</li>
+            </ul>
+          </div>
+
+          <div class="role compact">
+            <div class="role-meta">
+              <h3>Independent Software Engineer</h3>
+              <p>Multiple clients</p>
+              <time>Mar 2012 - Mar 2017</time>
+            </div>
+            <ul>
+              <li>Delivered ERP, mobile, web, and backend systems for clients including Techland, Future Processing, Weegree, and the University of Opole.</li>
+              <li>Contributed fixes and improvements to GCC, Jenkins, React, and Android Studio.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>Selected project themes</h2>
+          <div class="project-strip">
+            <div class="featured"><strong>Enterprise AI</strong><span>LLM applications, AI agents, vector search</span></div>
+            <div><strong>Production ML</strong><span>MLOps, NLP, computer vision, deployment</span></div>
+            <div><strong>AI foundations</strong><span>Cloud, data platforms, IaC, CI/CD</span></div>
+          </div>
+        </section>
+
+        <footer class="page-footer">
+          <span>Mateusz Kubaszek | CV</span>
+          <span>02 / 03</span>
+        </footer>
+      </article>
+
+      <article class="cv-page page-three">
+        <section>
+          <div class="section-heading">
+            <h2>Education</h2>
+            <span>Opole, Poland</span>
+          </div>
+
+          <div class="education-item">
+            <div>
+              <h3>Master of Engineering</h3>
+              <p>Opole University of Technology</p>
+            </div>
+            <time>2017 - 2019</time>
+            <p class="thesis">Thesis: Comparative analysis of selected Data Science algorithms implemented in Rust and Python</p>
+          </div>
+
+          <div class="education-item">
+            <div>
+              <h3>Bachelor of Engineering</h3>
+              <p>University of Opole</p>
+            </div>
+            <time>2013 - 2017</time>
+            <p class="thesis">Thesis: Distributed system based on blockchain</p>
+          </div>
+        </section>
+
+        <section class="two-column">
+          <div>
+            <h2>Speaking &amp; community</h2>
+            <ul class="clean-list">
+              <li><strong>Architecture IT Conference</strong><span>"AI in Architecture", 2023</span></li>
+              <li><strong>Data Science Summer Conference</strong><span>Creator and speaker, 2021</span></li>
+              <li><strong>Data Science Charity Conference</strong><span>Creator and speaker, 2020</span></li>
+              <li><strong>Technical YouTube channel</strong><span>Architecture, programming, and ML</span></li>
+            </ul>
+          </div>
+          <div>
+            <h2>Additional details</h2>
+            <ul class="clean-list">
+              <li><strong>Polish</strong><span>Native</span></li>
+              <li><strong>English</strong><span>B2+ | Professional working proficiency</span></li>
+              <li><strong>AMPPZZ</strong><span>National Collegiate Programming Contest, 2014-2016</span></li>
+              <li><strong>Availability</strong><span>Remote and on-site engagements</span></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="final-note">
+          <p class="eyebrow">AI leadership</p>
+          <h2>From AI strategy to production.</h2>
+          <p>
+            I connect business goals with pragmatic AI architecture and hands-on
+            engineering - helping teams choose the right use cases, reduce delivery
+            risk, and build AI systems that create measurable value.
+          </p>
+          <div class="final-contact">
+            <a href={`mailto:${contact.email}`}>{contact.email}</a>
+            <a href="https://mkubasz.github.io">mkubasz.github.io</a>
+          </div>
+        </section>
+
+        <footer class="page-footer">
+          <span>Mateusz Kubaszek | CV</span>
+          <span>03 / 03</span>
+        </footer>
+      </article>
+    </main>
+  </body>
+</html>
