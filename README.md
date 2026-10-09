@@ -8,6 +8,20 @@ Email: m.kubaszek@protonmail.com or mkubasz@gmail.com  /
 [GitHub](https://github.com/mkubasz/) / 
 [Twitter](https://twitter.com/MateuszKubaszek/)
 
+## Printable CV
+
+The concise, print-ready CV is available at `/cv`.
+
+```bash
+npm install
+npx playwright install chromium
+npm run cv:pdf
+```
+
+The command writes the final A4 document to
+`output/pdf/Mateusz-Kubaszek-CV.pdf` and copies it to `public/` so it can be
+downloaded from the deployed site.
+
 ## About me?
 
 Seasoned Software Engineer with over 12 years of expertise in distributed systems, cloud computing, and data engineering. My career is defined by successfully leading cross-functional teams in designing and implementing innovative, scalable solutions that drive business value.
@@ -49,7 +63,14 @@ I thrive on tackling complex challenges and am passionate about leveraging emerg
  **_Technologies used:_** Python (PySpark, FastAPI, Django), Rust, Scala, Flutter, Dart, Node(Express, Koa, Fastify).
 <br><br>
 
-**Senior Software Engineer/AI Consultant** @ [Heliux](https://www.heliux.com/) _(September 2023 - Present)_ <br>
+**Data Engineer / AI Engineer** @ HealthJoy _(September 2025 - Present)_ <br>
+  - Building real-time communication systems
+  - Training and adapting small language models for domain-specific tasks
+  - Developing agentic systems for integrations and conversational user chat
+  - Implementing LLMOps workflows, agent observability, and FinOps optimization
+<br><br>
+
+**Senior Software Engineer/AI Consultant** @ [Heliux](https://www.heliux.com/) _(September 2023 - August 2025)_ <br>
   - Developed AI solutions for supply chain and product management, integrating agents, LLMs, and custom integrations
   - Led AWS infrastructure design and CI/CD implementation
   - Architected business solutions for two key modules
