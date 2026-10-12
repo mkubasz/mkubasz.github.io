@@ -5,6 +5,9 @@ dist/
 public/blog/
 .output/
 
+# CV build output (scripts/generate-cv-pdf.mjs copies the PDF to public/)
+output/
+
 # generated types
 .astro/
 
@@ -39,3 +42,5 @@ pnpm-debug.log*
 # pnpm-lock.yaml
 notebooks/__marimo__/cache/
 notebooks/__marimo__/session/
+notebooks/__pycache__/
+notebooks/.*.marimo-export-*.py

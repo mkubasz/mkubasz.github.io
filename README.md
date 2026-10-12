@@ -27,8 +27,8 @@ downloaded from the deployed site.
 A post is a [marimo](https://marimo.io/) notebook plus a
 [marimo-studio](https://marimo-team.github.io/marimo-studio/) view named `post`:
 
-- `notebooks/<slug>.py` computes figures and values
-- `notebooks/__marimo__/studio/<slug>/post/index.html` holds the prose and places cells with `<marimo-cell name="...">`
+- `notebooks/<slug>.py` owns computation and controls; a post can also keep its Markdown prose here, as `agent-confusion-matrix.py` does
+- `notebooks/__marimo__/studio/<slug>/post/index.html` supplies the page layout and places cells with `<marimo-cell name="...">`; the softmax post keeps its prose in this view
 - `notebooks/__marimo__/studio/<slug>/post/states.yaml` lists the control values to pre-render
 - `src/content/blog/<slug>.md` holds only the frontmatter, with `notebook: true`, so the post shows up in `/blog`
 
