@@ -1,0 +1,84 @@
+{
+  "created": "2026-10-12",
+  "tool": "OpenAI built-in image_gen.imagegen",
+  "author": "Mateusz Kubaszek",
+  "images": [
+    {
+      "file": "patient.png",
+      "prompt": "Use case: illustration-story. Asset type: editorial cartoon for an English technical blog about AI agent confusion matrices. Create a horizontal hand-drawn ink and light watercolor cartoon on warm ivory paper, restrained navy, muted sage, faded coral. Scene: hospital reception. An adult patient on crutches with a large clearly visible leg cast, fully clothed, looks incredulous at a friendly small robot acting as a triage assistant behind a desk. The robot cheerfully points to a green check mark on its screen. One speech bubble from the robot says EXACTLY \"You are perfectly healthy!\" The patient is clearly injured but no gore, distress, mockery of disability, or invasive treatment. The joke is the robot's mistaken classification. Clean editorial linework, gently humorous, lots of whitespace, legible bubble, no other text, no logos, no watermark. Wide composition about 3:2.",
+      "source": "exec-e7fcda2c-53f2-471b-8bbb-608d2560e97f.png"
+    },
+    {
+      "file": "email.png",
+      "prompt": "Use case: illustration-story. Asset type: wide editorial cartoon for an English AI evaluation blog. Horizontal 3:2 hand-drawn ink and light watercolor on warm ivory paper, navy linework, muted sage and faded coral accents. Scene: a small friendly office robot wearing a headset proudly launches a paper envelope toward an adult sitting at a laptop. The adult has just pressed a big clearly labelled \"UNSUBSCRIBE\" button on their laptop, looks surprised and mildly annoyed. Robot speech bubble EXACTLY \"A special offer, just for you!\" The humor is an overeager automated sales agent ignoring an opt-out. Clear readable words, very simple scene, no other text, no brand, no watermark.",
+      "source": "exec-c876f856-6f5d-42a0-9d20-f311baf57375.png"
+    },
+    {
+      "file": "investing.png",
+      "prompt": "Use case: illustration-story. Asset type: wide editorial cartoon for an English AI evaluation blog. Horizontal 3:2 hand-drawn ink and light watercolor on warm ivory paper, navy linework, muted sage and faded coral accents. Scene: small enthusiastic friendly robot wearing a neat tie at an office desk with a monitor displaying a very simple stock chart plunging down in faded coral. Adult colleague stands beside it with a raised eyebrow. Robot holds up a celebratory little flag. Robot speech bubble EXACTLY \"The confidence was very high!\" Humor targets misplaced confidence in an automated investment agent, not real people. Simple composition, generous whitespace, no other words or numbers, no brands, no watermark.",
+      "source": "exec-d39bdd1f-4895-42b2-9e36-fd8de77cfc20.png"
+    }
+  ],
+  "editorial_review": [
+    "Accuracy includes both TP and TN, not just correctly identified positives.",
+    "Recall uses actual positives (TP + FN); precision uses predicted positives (TP + FP).",
+    "FPR is FP / (FP + TN); it is not the fraction of recommendations that are wrong.",
+    "The confusion matrix has four outcomes, not four statistical hypotheses.",
+    "ROC plots TPR against FPR across thresholds. AUC summarizes the score ranking and is fixed when only the threshold changes.",
+    "Email interest does not grant permission. The relevance matrix evaluates the already eligible pool; an execution-time permission gate blocks opt-outs.",
+    "A cast is a cartoon illustration, not proof of a need for ward admission. Illness, admission eligibility and surgery eligibility require different labels.",
+    "Investment suitability is defined from decision-time criteria, not retrospective profit. Execution and financial outcomes are evaluated separately.",
+    "An LLM's self-reported confidence is not automatically a calibrated probability.",
+    "Unknown labels remain unknown. An unsent offer or unreviewed rejected case cannot automatically be treated as negative.",
+    "Logs enable an evaluated improvement process; logging alone does not cause a model to learn.",
+    "Preserved the conversational workbench structure, the IT-cycle opening, the three practical agent scenarios and the gateway/prompt/fine-tuning improvement paths. Removed transcription repetitions and clarified the denominators."
+  ],
+  "numerical_fixture": "20 positive and 80 negative invented cases; shared score ranking; 21 thresholds from 0 to 1 at 0.05 increments; AUC uses all distinct scores.",
+  "sources": [
+    "https://developers.google.com/machine-learning/crash-course/classification/thresholding",
+    "https://developers.google.com/machine-learning/crash-course/classification/accuracy-precision-recall",
+    "https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc",
+    "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html",
+    "https://scikit-learn.org/stable/modules/calibration.html",
+    "https://www.edpb.europa.eu/sme/be-compliant/respect-individuals-rights_en"
+  ],
+  "verification": {
+    "notebook_cells_executed": 33,
+    "browser_states_verified": 1,
+    "roc_auc": 0.888125,
+    "independent_pairwise_auc": 0.888125,
+    "prepared_export_preflight": "passed, no issues; 24 projections",
+    "astro_build": "passed; 31 files checked with no errors",
+    "desktop_and_mobile_visual_review": "passed; formulas on separate lines; sketches precede tables; Caveat loaded; no clipped SVG text or horizontal overflow at 390px",
+    "artifact_revision": "94db8095a7a65600c13a2b2083e772988170c45fe2fd5e96ffdca66bc455ef39",
+    "authored_sketch_blocks": 7,
+    "authored_sketch_panels": 19,
+    "local_preview_reload": "passed with default threshold 50",
+    "previous_numeric_browser_revision": "7b3f96ad0b85b9d7264b07574544acc9612d8de685954de5000d772ef6301a9d",
+    "prepared_states_verified": 21,
+    "decision_lists_verified": "Three Decision blocks, four correctly labelled bullet points each; desktop and mobile at 390px reviewed with no overflow.",
+    "previous_numeric_browser_check": "All 21 thresholds passed before this prose-only revision; computations and controls unchanged."
+  },
+  "authored_sketches": {
+    "style_reference": "notebooks/softmax-temperature.py: primer, odds and flattening cells; previous Studio post typography",
+    "rendering": "Original SVG geometry and handwritten Caveat annotations authored in notebook cells; no raster generation",
+    "palette": {
+      "ink": "#253951",
+      "blue": "#deebf4",
+      "green": "#e5efe7",
+      "coral": "#f7e6dd"
+    },
+    "cells": [
+      "patient_outcome_sketch",
+      "denominator_sketch",
+      "permission_flow",
+      "suitability_sketch",
+      "auc_pair_sketch",
+      "policy_sketch",
+      "improvement_flow"
+    ],
+    "numerical_ownership": "Metric denominators, policy scores and both AUC pairs derive from notebook fixtures and functions.",
+    "interactive": "One patient example: a threshold slider updates the compact matrix, recall/FPR and the point on a fixed ROC curve."
+  },
+  "presentation_revision": "Removed redundant figure captions, numerical summaries, cost details, case ledger, references/notebook notes and closing recap. Shortened prose and simplified interaction to one patient threshold. Scoped article navigation to avoid a collision with native Markdown contents styling. Patient, email and investment outcome explanations now use a Decision label followed by four bullets."
+}

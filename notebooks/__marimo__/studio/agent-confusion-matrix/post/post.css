@@ -1,0 +1,54 @@
+
+:root {
+  color-scheme: light;
+  --ink: #213448; --muted: #495a65; --rule: #ccd5da; --band: #e0e9ed;
+  --marimo-cell-font: "Noto Sans", system-ui, sans-serif;
+  --marimo-cell-heading-font: "Montserrat", system-ui, sans-serif;
+  --marimo-cell-monospace-font: "Source Code Pro", monospace;
+  --marimo-cell-font-size: 17px;
+  --marimo-cell-foreground: var(--ink);
+  --marimo-cell-accent: #35685e;
+  --marimo-cell-muted-foreground: var(--muted);
+  --marimo-cell-background: transparent;
+  --marimo-cell-padding: 0;
+  --marimo-cell-content-width: 100%;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 1rem; }
+body { margin: 0; background: #fcfcfb; color: var(--ink); font-family: "Noto Sans", system-ui, sans-serif; line-height: 1.85; }
+a { color: #35685e; text-underline-offset: .18em; }
+a:focus-visible, summary:focus-visible { outline: 3px solid #b15a3c; outline-offset: 4px; }
+.band { background: var(--band); }
+.band > div { max-width: 860px; margin: auto; padding: 1.15rem 2rem; display: flex; justify-content: space-between; gap: 1rem; }
+.band a { color: var(--ink); text-decoration: none; font-family: "Montserrat", sans-serif; font-weight: 700; }
+.band a + a { font-size: .85rem; font-weight: 500; }
+#app-shell { max-width: 860px; margin: auto; padding: 3rem 2rem 2rem; }
+marimo-cell { display: block; }
+.post-body > section { margin: 2.5rem 0; scroll-margin-top: 1rem; }
+#start { margin-top: 0; }
+.article-contents { display: flex; flex-wrap: wrap; gap: .5rem 1.2rem; padding: 1rem 0; margin: 2rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); font-size: .85rem; }
+.article-contents b { flex-basis: 100%; color: var(--ink); }
+#experiment { border-top: 2px solid #547b8b; border-bottom: 1px solid var(--rule); padding: 1.5rem 0; margin: 2rem 0; }
+.skip-link { position: absolute; left: -10000px; }
+.skip-link:focus { left: 1rem; top: .5rem; background: white; padding: .5rem; z-index: 10; }
+@media (max-width: 560px) {
+  :root { --marimo-cell-font-size: 16px; }
+  #app-shell { padding: 1.5rem 1rem; }
+  .band > div { padding: 1rem; }
+  .band a { font-size: .9rem; }
+  .post-body > section { margin: 1.5rem 0; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media print { .band, .article-contents, .skip-link { display: none; } #app-shell { max-width: none; padding: 0; } }
+
+.comic { margin: 1.5rem 0; }
+.comic img { display: block; width: 100%; height: auto; border-radius: 3px; }
+.comic figcaption { color: var(--muted); font-size: .85rem; line-height: 1.65; margin-top: .8rem; }
+.post-body > header { margin-bottom: 1.5rem; }
+.post-body > header h1 { font: 400 clamp(1.9rem, 5vw, 2.5rem)/1.25 "Montserrat", sans-serif; margin: 0 0 1rem; }
+.meta { color: var(--muted); font: 500 .8125rem "Montserrat", sans-serif; text-transform: uppercase; letter-spacing: .05em; margin: 0 0 1rem; }
+.lead { font-size: 1.2rem; line-height: 1.75; margin: 0; }
+/* The slider stays in view while the figures it drives scroll past. */
+#experiment > marimo-cell[name="controls"] { position: sticky; top: 0; z-index: 5; background: #fcfcfb; padding: .5rem 0; border-bottom: 1px solid var(--rule); }
+#roc { scroll-margin-top: 5rem; }
+@media print { #experiment > marimo-cell[name="controls"] { position: static; } }
