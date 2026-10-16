@@ -5,7 +5,8 @@
 #     "marimo",
 #     "numpy",
 #     "pandas",
-#     "marimo-studio==0.3.0"
+#     "marimo-studio==0.3.0",
+#     "marimo-export==0.1.4"
 # ]
 #
 # [tool.marimo-studio]

@@ -1,0 +1,560 @@
+{
+  "source": "Snapshot of the supplied eval_tools laboratory, 2026-10-16. Calls are reference annotations, not observed model outputs.",
+  "sha256": {
+    "lab0.py": "7a03d4303eb0cf3d99c81438a52cf6789c0ad2df72b939f22c66aa43ae24299a",
+    "agent_loop.py": "a4bed2b488af96717c0bb7e5a272dac0afe5c8e351c16ca0a5a920ab51e1a1b1",
+    "scenarios.py": "44912a5776d617e90f4c1a85fc0d72f25e22acbb5baa9ed6ae363145452a129f",
+    "main.py": "594bad8b032ce72c20c5df798daaac5ad5870d02f92edd3e9405b6446a4f6c58",
+    "pyproject.toml": "caf1566b7b0dd1b5330522ad3deef456ed9c6be1da4ccb8b4e274368afa27c78",
+    "uv.lock": "6f538462f0bac1ae2257b0013d79657f9a1547138a8fea154f149c55e2060a9e"
+  },
+  "labels": [
+    "get_patient_status",
+    "search_patient_data",
+    "approve_patient_request",
+    "assign_patient_labs",
+    "assign_patient_surgery"
+  ],
+  "records": [
+    {
+      "name": "Happy path: admission -> labs -> surgery",
+      "patient_id": "12345",
+      "turns": [
+        {
+          "prompt": "Patient John Smith (ID 12345) arrived at the admissions desk. Check the medical records of patient 12345 first, then please approve patient request REQ-12345.",
+          "expected_calls": [
+            [
+              "search_patient_data",
+              {
+                "query": "12345"
+              }
+            ],
+            [
+              "approve_patient_request",
+              {
+                "query": "REQ-12345"
+              }
+            ]
+          ]
+        },
+        {
+          "prompt": "Check the medical records of patient 12345 first, then assign lab CBC for patient 12345.",
+          "expected_calls": [
+            [
+              "search_patient_data",
+              {
+                "query": "12345"
+              }
+            ],
+            [
+              "assign_patient_labs",
+              {
+                "lab_name": "CBC",
+                "patient_id": "12345"
+              }
+            ]
+          ]
+        },
+        {
+          "prompt": "Check the medical records of patient 12345 first, then assign surgery Appendectomy for patient 12345.",
+          "expected_calls": [
+            [
+              "search_patient_data",
+              {
+                "query": "12345"
+              }
+            ],
+            [
+              "assign_patient_surgery",
+              {
+                "surgery_name": "Appendectomy",
+                "patient_id": "12345"
+              }
+            ]
+          ]
+        }
+      ],
+      "snapshot": {
+        "admission_approved": true,
+        "assigned_labs": [
+          "CBC"
+        ],
+        "assigned_surgery": "Appendectomy"
+      }
+    },
+    {
+      "name": "Already on the ward: no repeated approval",
+      "patient_id": "12346",
+      "turns": [
+        {
+          "prompt": "Patient 12346 is already on the ward. Check her current status.",
+          "expected_calls": [
+            [
+              "get_patient_status",
+              {
+                "patient_id": "12346"
+              }
+            ]
+          ]
+        },
+        {
+          "prompt": "Check the medical records of patient 12346 first, then assign lab Liver function tests for patient 12346.",
+          "expected_calls": [
+            [
+              "search_patient_data",
+              {
+                "query": "12346"
+              }
+            ],
+            [
+              "assign_patient_labs",
+              {
+                "lab_name": "Liver function tests",
+                "patient_id": "12346"
+              }
+            ]
+          ]
+        },
+        {
+          "prompt": "Check the medical records of patient 12346 first, then assign surgery Laparoscopic cholecystectomy for patient 12346.",
+          "expected_calls": [
+            [
+              "search_patient_data",
+              {
+                "query": "12346"
+              }
+            ],
+            [
+              "assign_patient_surgery",
+              {
+                "surgery_name": "Laparoscopic cholecystectomy",
+                "patient_id": "12346"
+              }
+            ]
+          ]
+        }
+      ],
+      "snapshot": {
+        "admission_approved": true,
+        "assigned_labs": [
+          "CBC",
+          "Coagulation panel",
+          "Blood typing",
+          "Liver function tests"
+        ],
+        "assigned_surgery": "Laparoscopic cholecystectomy"
+      }
+    },
+    {
+      "name": "Senior patient: tests before admission",
+      "patient_id": "12349",
+      "turns": [
+        {
+          "prompt": "Patient 12349 is 68 and needs a cardiac check before admission. Check the medical records of patient 12349 first, then assign lab ECG for patient 12349.",
+          "expected_calls": [
+            [
+              "search_patient_data",
+              {
+                "query": "12349"
+              }
+            ],
+            [
+              "assign_patient_labs",
+              {
+                "lab_name": "ECG",
+                "patient_id": "12349"
+              }
+            ]
+          ]
+        },
+        {
+          "prompt": "ECG is normal. Check the medical records of patient 12349 first, then please approve patient request REQ-12349.",
+          "expected_calls": [
+            [
+              "search_patient_data",
+              {
+                "query": "12349"
+              }
+            ],
+            [
+              "approve_patient_request",
+              {
+                "query": "REQ-12349"
+              }
+            ]
+          ]
+        },
+        {
+          "prompt": "Check the medical records of patient 12349 first, then assign surgery Cholecystectomy for patient 12349.",
+          "expected_calls": [
+            [
+              "search_patient_data",
+              {
+                "query": "12349"
+              }
+            ],
+            [
+              "assign_patient_surgery",
+              {
+                "surgery_name": "Cholecystectomy",
+                "patient_id": "12349"
+              }
+            ]
+          ]
+        }
+      ],
+      "snapshot": {
+        "admission_approved": true,
+        "assigned_labs": [
+          "ECG"
+        ],
+        "assigned_surgery": "Cholecystectomy"
+      }
+    },
+    {
+      "name": "On hold: incomplete documentation",
+      "patient_id": "12350",
+      "turns": [
+        {
+          "prompt": "Check the status of patient 12350. If the documentation is incomplete, do not approve admission or assign surgery.",
+          "expected_calls": [
+            [
+              "get_patient_status",
+              {
+                "patient_id": "12350"
+              }
+            ]
+          ]
+        }
+      ],
+      "snapshot": {
+        "admission_approved": false,
+        "assigned_labs": [],
+        "assigned_surgery": null
+      }
+    },
+    {
+      "name": "Full workflow: status after each step",
+      "patient_id": "12346",
+      "turns": [
+        {
+          "prompt": "Get the medical records of patient 12346 and check her status. Then assign lab Liver function tests for patient 12346 and check her status. Then assign surgery Laparoscopic cholecystectomy for patient 12346 and check her status.",
+          "expected_calls": [
+            [
+              "search_patient_data",
+              {
+                "query": "12346"
+              }
+            ],
+            [
+              "get_patient_status",
+              {
+                "patient_id": "12346"
+              }
+            ],
+            [
+              "assign_patient_labs",
+              {
+                "lab_name": "Liver function tests",
+                "patient_id": "12346"
+              }
+            ],
+            [
+              "get_patient_status",
+              {
+                "patient_id": "12346"
+              }
+            ],
+            [
+              "assign_patient_surgery",
+              {
+                "surgery_name": "Laparoscopic cholecystectomy",
+                "patient_id": "12346"
+              }
+            ],
+            [
+              "get_patient_status",
+              {
+                "patient_id": "12346"
+              }
+            ]
+          ]
+        }
+      ],
+      "snapshot": {
+        "admission_approved": true,
+        "assigned_labs": [
+          "CBC",
+          "Coagulation panel",
+          "Blood typing",
+          "Liver function tests"
+        ],
+        "assigned_surgery": "Laparoscopic cholecystectomy"
+      }
+    }
+  ],
+  "patient_table": {
+    "12345": {
+      "patient_id": "12345",
+      "name": "John Smith",
+      "age": 45,
+      "gender": "M",
+      "pesel": "79051412345",
+      "admission_request": {
+        "request_id": "REQ-12345",
+        "department": "General Surgery Ward",
+        "admission_type": "Urgent",
+        "referral_reason": "Suspected acute appendicitis",
+        "referring_doctor": "Dr Adam Brown"
+      },
+      "diagnosis": "Acute appendicitis",
+      "recommended_surgery": "Appendectomy",
+      "required_labs": [
+        "CBC",
+        "Blood typing",
+        "Coagulation panel (PT, INR, APTT)",
+        "Electrolytes (Na, K)"
+      ],
+      "medical_history": "No significant chronic conditions, no previous surgery, no drug allergies."
+    },
+    "12346": {
+      "patient_id": "12346",
+      "name": "Anna Brown",
+      "age": 52,
+      "gender": "F",
+      "pesel": "72031123456",
+      "admission_request": {
+        "request_id": "REQ-12346",
+        "department": "General Surgery Ward",
+        "admission_type": "Elective",
+        "referral_reason": "Symptomatic cholelithiasis",
+        "referring_doctor": "Dr Eve Clark"
+      },
+      "diagnosis": "Cholelithiasis",
+      "recommended_surgery": "Laparoscopic cholecystectomy",
+      "required_labs": [
+        "CBC",
+        "Coagulation panel",
+        "Liver function tests (ALT, AST, bilirubin)",
+        "Blood typing"
+      ],
+      "medical_history": "Medication-controlled hypertension, pollen allergy, no drug allergies."
+    },
+    "12347": {
+      "patient_id": "12347",
+      "name": "Peter Williams",
+      "age": 38,
+      "gender": "M",
+      "pesel": "86082234567",
+      "admission_request": {
+        "request_id": "REQ-12347",
+        "department": "General Surgery Ward",
+        "admission_type": "Elective",
+        "referral_reason": "Right inguinal hernia",
+        "referring_doctor": "Dr John Williams"
+      },
+      "diagnosis": "Inguinal hernia",
+      "recommended_surgery": "Inguinal hernia repair",
+      "required_labs": [
+        "CBC",
+        "Electrolytes",
+        "ECG"
+      ],
+      "medical_history": "Good general condition, no chronic conditions or allergies."
+    },
+    "12348": {
+      "patient_id": "12348",
+      "name": "Mark Davis",
+      "age": 41,
+      "gender": "M",
+      "pesel": "83021956789",
+      "admission_request": {
+        "request_id": "REQ-12348",
+        "department": "General Surgery Ward",
+        "admission_type": "Elective",
+        "referral_reason": "Epigastric hernia",
+        "referring_doctor": "Dr Thomas Green"
+      },
+      "diagnosis": "Abdominal hernia (Epigastric hernia)",
+      "recommended_surgery": "Epigastric hernia repair",
+      "required_labs": [
+        "CBC",
+        "Coagulation panel"
+      ],
+      "medical_history": "No significant medical history, no allergies."
+    },
+    "12349": {
+      "patient_id": "12349",
+      "name": "Theodore Lewis",
+      "age": 68,
+      "gender": "M",
+      "pesel": "56041189012",
+      "admission_request": {
+        "request_id": "REQ-12349",
+        "department": "General Surgery Ward",
+        "admission_type": "Elective",
+        "referral_reason": "Symptomatic gallstones in an older patient",
+        "referring_doctor": "Dr Mary Wright"
+      },
+      "diagnosis": "Chronic gallstone disease",
+      "recommended_surgery": "Cholecystectomy",
+      "required_labs": [
+        "ECG",
+        "Electrolytes",
+        "CBC"
+      ],
+      "medical_history": "Stable ischemic heart disease, hypertension."
+    },
+    "12350": {
+      "patient_id": "12350",
+      "name": "Christopher Dawson",
+      "age": 29,
+      "gender": "M",
+      "pesel": "95070312389",
+      "admission_request": {
+        "request_id": "REQ-12350",
+        "department": "General Surgery Ward",
+        "admission_type": "Elective",
+        "referral_reason": "Consultation and assessment",
+        "referring_doctor": "Unknown"
+      },
+      "diagnosis": "Right lower abdominal pain requiring diagnostic workup",
+      "recommended_surgery": "To be determined after testing",
+      "required_labs": [
+        "Abdominal ultrasound",
+        "CBC"
+      ],
+      "medical_history": "No formal referral in the documentation."
+    },
+    "12351": {
+      "patient_id": "12351",
+      "name": "Stanley Wilson",
+      "age": 63,
+      "gender": "M",
+      "pesel": "61091567890",
+      "admission_request": {
+        "request_id": "REQ-12351",
+        "department": "General Surgery Ward",
+        "admission_type": "Elective",
+        "referral_reason": "Assessment for cholecystectomy while on anticoagulant therapy",
+        "referring_doctor": "Dr Andrew Carter"
+      },
+      "diagnosis": "Cholelithiasis, atrial fibrillation",
+      "recommended_surgery": "Laparoscopic cholecystectomy",
+      "required_labs": [
+        "Coagulation panel PT, INR",
+        "CBC",
+        "Electrolytes"
+      ],
+      "medical_history": "Taking warfarin for atrial fibrillation. INR measurement required."
+    }
+  },
+  "initial_status": {
+    "12345": {
+      "patient_id": "12345",
+      "request_id": "REQ-12345",
+      "current_status": "Awaiting ward admission",
+      "admission_approved": false,
+      "target_ward": "General Surgery Ward",
+      "current_ward": null,
+      "bed_assigned": null,
+      "labs_status": "Awaiting orders",
+      "assigned_labs": [],
+      "surgery_status": "Unassigned",
+      "assigned_surgery": null,
+      "notes": "Admission request submitted at the admissions unit; awaiting approval and admission to the surgical ward."
+    },
+    "12346": {
+      "patient_id": "12346",
+      "request_id": "REQ-12346",
+      "current_status": "Admitted to ward",
+      "admission_approved": true,
+      "target_ward": "General Surgery Ward",
+      "current_ward": "General Surgery Ward",
+      "bed_assigned": "Room 204, Bed 2",
+      "labs_status": "Tests ordered",
+      "assigned_labs": [
+        "CBC",
+        "Coagulation panel",
+        "Blood typing"
+      ],
+      "surgery_status": "Awaiting surgery assignment",
+      "assigned_surgery": null,
+      "notes": "Patient admitted to the surgical ward, laboratory tests ordered, awaiting surgical assessment."
+    },
+    "12347": {
+      "patient_id": "12347",
+      "request_id": "REQ-12347",
+      "current_status": "Surgery assigned",
+      "admission_approved": true,
+      "target_ward": "General Surgery Ward",
+      "current_ward": "General Surgery Ward",
+      "bed_assigned": "Room 205, Bed 1",
+      "labs_status": "Tests completed",
+      "assigned_labs": [
+        "CBC",
+        "Electrolytes",
+        "ECG"
+      ],
+      "surgery_status": "Assigned",
+      "assigned_surgery": "Inguinal hernia repair",
+      "notes": "Patient admitted, tests completed, surgery successfully assigned and scheduled."
+    },
+    "12348": {
+      "patient_id": "12348",
+      "request_id": "REQ-12348",
+      "current_status": "Awaiting diagnostic workup",
+      "admission_approved": false,
+      "target_ward": "General Surgery Ward",
+      "current_ward": null,
+      "bed_assigned": null,
+      "labs_status": "No tests",
+      "assigned_labs": [],
+      "surgery_status": "Unassigned",
+      "assigned_surgery": null,
+      "notes": "Patient presenting for elective admission with missing laboratory documentation."
+    },
+    "12349": {
+      "patient_id": "12349",
+      "request_id": "REQ-12349",
+      "current_status": "Geriatric assessment",
+      "admission_approved": false,
+      "target_ward": "General Surgery Ward",
+      "current_ward": null,
+      "bed_assigned": null,
+      "labs_status": "Extended panel required",
+      "assigned_labs": [],
+      "surgery_status": "Unassigned",
+      "assigned_surgery": null,
+      "notes": "Patient aged 68, elective surgery planned, cardiac assessment required (ECG, electrolytes)."
+    },
+    "12350": {
+      "patient_id": "12350",
+      "request_id": "REQ-12350",
+      "current_status": "Incomplete documentation",
+      "admission_approved": false,
+      "target_ward": "General Surgery Ward",
+      "current_ward": null,
+      "bed_assigned": null,
+      "labs_status": "No tests",
+      "assigned_labs": [],
+      "surgery_status": "On hold",
+      "assigned_surgery": null,
+      "notes": "Request missing the specialist referral; assessment on hold."
+    },
+    "12351": {
+      "patient_id": "12351",
+      "request_id": "REQ-12351",
+      "current_status": "Anticoagulant medication review",
+      "admission_approved": false,
+      "target_ward": "General Surgery Ward",
+      "current_ward": null,
+      "bed_assigned": null,
+      "labs_status": "Awaiting INR check",
+      "assigned_labs": [],
+      "surgery_status": "Unassigned",
+      "assigned_surgery": null,
+      "notes": "Patient taking oral anticoagulants; blood coagulation assessment required."
+    }
+  }
+}

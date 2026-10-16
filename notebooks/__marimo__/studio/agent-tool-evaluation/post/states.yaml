@@ -1,0 +1,33 @@
+schema: marimo-export.states.v1
+default_state: broken-0
+states:
+  broken-0:
+    parser_mode: ["Broken parser · results_broken"]
+    scenario_choice: ["Happy path: admission -> labs -> surgery"]
+  broken-1:
+    parser_mode: ["Broken parser · results_broken"]
+    scenario_choice: ["Already on the ward: no repeated approval"]
+  broken-2:
+    parser_mode: ["Broken parser · results_broken"]
+    scenario_choice: ["Senior patient: tests before admission"]
+  broken-3:
+    parser_mode: ["Broken parser · results_broken"]
+    scenario_choice: ["On hold: incomplete documentation"]
+  broken-4:
+    parser_mode: ["Broken parser · results_broken"]
+    scenario_choice: ["Full workflow: status after each step"]
+  correct-0:
+    parser_mode: ["Corrected parser · results"]
+    scenario_choice: ["Happy path: admission -> labs -> surgery"]
+  correct-1:
+    parser_mode: ["Corrected parser · results"]
+    scenario_choice: ["Already on the ward: no repeated approval"]
+  correct-2:
+    parser_mode: ["Corrected parser · results"]
+    scenario_choice: ["Senior patient: tests before admission"]
+  correct-3:
+    parser_mode: ["Corrected parser · results"]
+    scenario_choice: ["On hold: incomplete documentation"]
+  correct-4:
+    parser_mode: ["Corrected parser · results"]
+    scenario_choice: ["Full workflow: status after each step"]

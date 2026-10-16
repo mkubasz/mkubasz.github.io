@@ -1,0 +1,35 @@
+{
+  "created": "2026-10-16",
+  "tool": "OpenAI built-in image_gen.imagegen",
+  "images": [
+    {
+      "key": "tools-matrix-sketch",
+      "source": "/Users/mkubaszek/.codex/generated_images/01a145ac-221a-7403-9e0a-3ae7cffda334/exec-251241ef-a63c-43eb-b640-2fa29f6934eb.png",
+      "cell": "tools_matrix_illustration",
+      "before": "opening",
+      "alt": "Hand-drawn six-by-six matrix with Status, Records, Approve, Labs, Surgery and None on both the Expected and Called axes, beside a small robot.",
+      "caption": "Expected tools down the rows, called tools across the columns. This is a sketch; the report below contains the recorded counts.",
+      "file": "tools-matrix-sketch.png",
+      "web_file": "tools-matrix-sketch.webp",
+      "prompt": "Use case: illustration-story.\nAsset type: wide opening artwork for an English technical blog titled \"More tools, more ways to be wrong\", about evaluating an AI agent with five hospital tools in an expected-versus-called confusion matrix.\nPrimary request: Beautiful genuinely hand-drawn sketchbook illustration on warm ivory paper. A large 6-by-6 ink grid is the main subject, with a small friendly robot with navy face checking it using a pencil. The matrix compares five tools plus a missing-call category. Refined handwritten marginal labels and gentle watercolor fill make the logic readable.\nComposition: horizontal 3:2, generous paper margins. Grid centered, occupies two thirds of artwork. Handwrite \"Called\" above the columns, and \"Expected\" left of rows. Both axes contain the SAME SIX SHORT LABELS IN EXACTLY THIS ORDER: \"Status\", \"Records\", \"Approve\", \"Labs\", \"Surgery\", \"None\". These are readable handwritten labels, with column labels slightly tilted above columns and row labels aligned left. Exactly six rows and six columns. Use tiny navy checkmarks in some matching diagonal cells for the first five tools, light sage wash on those diagonal cells; put a few small coral ink marks in the last column, which represents missing calls. Leave most other cells blank. No numerical counts, no implication that these are captured lab data. A small coral curved arrow points from the \"Labs\" row toward the last \"None\" column. Robot is small at lower-right and never obscures the grid. No extra matrix or dashboard.\nStyle: high-quality editorial pen and ink, natural imperfect navy fineliner, delicate graphite construction lines, translucent dusty blue, sage and faded coral watercolor, tactile ivory paper, charming but restrained. Handwritten lettering throughout, clean legibility at 750px width.\nText verbatim: \"Called\", \"Expected\", \"Status\", \"Records\", \"Approve\", \"Labs\", \"Surgery\", \"None\". Repeat each of the six labels once on each axis. No other text, no formula, no digits, no title or caption, no brand, no watermark. Avoid corporate vector art, glossy 3D and dense scenery."
+    },
+    {
+      "key": "parser-workflow-sketch",
+      "source": "/Users/mkubaszek/.codex/generated_images/01a145ac-221a-7403-9e0a-3ae7cffda334/exec-6f10bba9-6c6e-4a31-a74c-31427f5c4bf1.png",
+      "cell": "parser_workflow_illustration",
+      "before": "parser_demonstration",
+      "alt": "A robot sends record, laboratory and surgery symbols through a Parser funnel toward Tools; two symbols fall aside as a person checks a reference clipboard.",
+      "caption": "A model response still has to pass through the parser before a tool can run.",
+      "file": "parser-workflow-sketch.png",
+      "web_file": "parser-workflow-sketch.webp",
+      "prompt": "Use case: illustration-story.\nAsset type: section artwork for an English technical blog about a broken parser losing AI-agent tool calls.\nPrimary request: A beautiful airy hand-drawn research-notebook illustration of a tool-calling pipeline. At left a small friendly robot produces a paper slip containing three tiny recognizable doodles: a medical record folder, a lab vial and a surgery instrument. At center the slip passes through a simple paper funnel labeled \"Parser\". The record-folder doodle makes it through; the lab-vial and instrument doodles lie just beside the funnel with tiny coral question marks. At right a human hand with a navy pencil compares what emerged with a reference clipboard. The humor is a software parser losing intended actions, never a patient being harmed.\nComposition: horizontal 3:2, a single clear left-to-right flow with hand-drawn navy arrows. Write \"Model\" above the robot, \"Parser\" on the funnel, and \"Tools\" above the output side. Generous negative space around three stages, no panels or boxes around the composition. The reference clipboard at far right is secondary, with a sage check mark and no writing.\nStyle/medium: beautiful navy fineliner and graphite sketch with natural handwritten letters, soft watercolor washes on warm almost-white ivory paper. Palette dusty blue, muted sage and faded coral. Tactile, carefully art-directed editorial notebook, expressive irregular ink and restrained cross-hatching. Match a warm hand-drawn expected-versus-called matrix illustration.\nText verbatim: \"Model\", \"Parser\", \"Tools\". No other words, no code snippets, no numbers, no formulas, no logos or watermark. No medical treatment scene, no photorealism, no glossy 3D, no corporate flat vector aesthetic."
+    }
+  ],
+  "delivery": {
+    "width": 1200,
+    "quality": 80,
+    "format": "WebP",
+    "studio": "Embedded once in authored HTML, not projected into Prepared states.",
+    "notebook": "Local mo.image with identical alt text and captions."
+  }
+}

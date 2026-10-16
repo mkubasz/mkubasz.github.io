@@ -1,0 +1,1092 @@
+{
+  "schema": 1,
+  "kind": "observed_model_run",
+  "started_at": "2026-10-16T15:56:03.478026+00:00",
+  "finished_at": "2026-10-16T15:56:40.539536+00:00",
+  "elapsed_seconds": 37.0611,
+  "model": "LiquidAI/LFM2-1.2B-Tool",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "python": "3.14.0rc3",
+  "platform": "Darwin",
+  "machine": "arm64",
+  "packages": {
+    "marimo": "0.25.1",
+    "mlx-lm": "0.32.2",
+    "mlx": "0.32.4",
+    "sentence-transformers": "6.1.0",
+    "transformers": "5.20.0",
+    "scikit-learn": "1.9.1"
+  },
+  "source_sha256": {
+    "lab0.py": "7a03d4303eb0cf3d99c81438a52cf6789c0ad2df72b939f22c66aa43ae24299a",
+    "agent_loop.py": "a4bed2b488af96717c0bb7e5a272dac0afe5c8e351c16ca0a5a920ab51e1a1b1",
+    "scenarios.py": "44912a5776d617e90f4c1a85fc0d72f25e22acbb5baa9ed6ae363145452a129f",
+    "main.py": "594bad8b032ce72c20c5df798daaac5ad5870d02f92edd3e9405b6446a4f6c58",
+    "pyproject.toml": "caf1566b7b0dd1b5330522ad3deef456ed9c6be1da4ccb8b4e274368afa27c78",
+    "uv.lock": "6f538462f0bac1ae2257b0013d79657f9a1547138a8fea154f149c55e2060a9e"
+  },
+  "generation": {
+    "max_steps_per_turn": 8,
+    "max_tokens_per_generation": 256,
+    "sampling": "unchanged defaults in agent_loop.py",
+    "seed": "not overridden"
+  },
+  "records": [
+    {
+      "name": "Happy path: admission -> labs -> surgery",
+      "patient_id": "12345",
+      "turns": [
+        {
+          "prompt": "Patient John Smith (ID 12345) arrived at the admissions desk. Check the medical records of patient 12345 first, then please approve patient request REQ-12345.",
+          "expected_calls": [
+            [
+              "search_patient_data",
+              {
+                "query": "12345"
+              }
+            ],
+            [
+              "approve_patient_request",
+              {
+                "query": "REQ-12345"
+              }
+            ]
+          ]
+        },
+        {
+          "prompt": "Check the medical records of patient 12345 first, then assign lab CBC for patient 12345.",
+          "expected_calls": [
+            [
+              "search_patient_data",
+              {
+                "query": "12345"
+              }
+            ],
+            [
+              "assign_patient_labs",
+              {
+                "lab_name": "CBC",
+                "patient_id": "12345"
+              }
+            ]
+          ]
+        },
+        {
+          "prompt": "Check the medical records of patient 12345 first, then assign surgery Appendectomy for patient 12345.",
+          "expected_calls": [
+            [
+              "search_patient_data",
+              {
+                "query": "12345"
+              }
+            ],
+            [
+              "assign_patient_surgery",
+              {
+                "surgery_name": "Appendectomy",
+                "patient_id": "12345"
+              }
+            ]
+          ]
+        }
+      ],
+      "snapshot": {
+        "admission_approved": true,
+        "assigned_labs": [
+          "CBC"
+        ],
+        "assigned_surgery": "Appendectomy"
+      }
+    },
+    {
+      "name": "Already on the ward: no repeated approval",
+      "patient_id": "12346",
+      "turns": [
+        {
+          "prompt": "Patient 12346 is already on the ward. Check her current status.",
+          "expected_calls": [
+            [
+              "get_patient_status",
+              {
+                "patient_id": "12346"
+              }
+            ]
+          ]
+        },
+        {
+          "prompt": "Check the medical records of patient 12346 first, then assign lab Liver function tests for patient 12346.",
+          "expected_calls": [
+            [
+              "search_patient_data",
+              {
+                "query": "12346"
+              }
+            ],
+            [
+              "assign_patient_labs",
+              {
+                "lab_name": "Liver function tests",
+                "patient_id": "12346"
+              }
+            ]
+          ]
+        },
+        {
+          "prompt": "Check the medical records of patient 12346 first, then assign surgery Laparoscopic cholecystectomy for patient 12346.",
+          "expected_calls": [
+            [
+              "search_patient_data",
+              {
+                "query": "12346"
+              }
+            ],
+            [
+              "assign_patient_surgery",
+              {
+                "surgery_name": "Laparoscopic cholecystectomy",
+                "patient_id": "12346"
+              }
+            ]
+          ]
+        }
+      ],
+      "snapshot": {
+        "admission_approved": true,
+        "assigned_labs": [
+          "CBC",
+          "Coagulation panel",
+          "Blood typing",
+          "Liver function tests"
+        ],
+        "assigned_surgery": "Laparoscopic cholecystectomy"
+      }
+    },
+    {
+      "name": "Senior patient: tests before admission",
+      "patient_id": "12349",
+      "turns": [
+        {
+          "prompt": "Patient 12349 is 68 and needs a cardiac check before admission. Check the medical records of patient 12349 first, then assign lab ECG for patient 12349.",
+          "expected_calls": [
+            [
+              "search_patient_data",
+              {
+                "query": "12349"
+              }
+            ],
+            [
+              "assign_patient_labs",
+              {
+                "lab_name": "ECG",
+                "patient_id": "12349"
+              }
+            ]
+          ]
+        },
+        {
+          "prompt": "ECG is normal. Check the medical records of patient 12349 first, then please approve patient request REQ-12349.",
+          "expected_calls": [
+            [
+              "search_patient_data",
+              {
+                "query": "12349"
+              }
+            ],
+            [
+              "approve_patient_request",
+              {
+                "query": "REQ-12349"
+              }
+            ]
+          ]
+        },
+        {
+          "prompt": "Check the medical records of patient 12349 first, then assign surgery Cholecystectomy for patient 12349.",
+          "expected_calls": [
+            [
+              "search_patient_data",
+              {
+                "query": "12349"
+              }
+            ],
+            [
+              "assign_patient_surgery",
+              {
+                "surgery_name": "Cholecystectomy",
+                "patient_id": "12349"
+              }
+            ]
+          ]
+        }
+      ],
+      "snapshot": {
+        "admission_approved": true,
+        "assigned_labs": [
+          "ECG"
+        ],
+        "assigned_surgery": "Cholecystectomy"
+      }
+    },
+    {
+      "name": "On hold: incomplete documentation",
+      "patient_id": "12350",
+      "turns": [
+        {
+          "prompt": "Check the status of patient 12350. If the documentation is incomplete, do not approve admission or assign surgery.",
+          "expected_calls": [
+            [
+              "get_patient_status",
+              {
+                "patient_id": "12350"
+              }
+            ]
+          ]
+        }
+      ],
+      "snapshot": {
+        "admission_approved": false,
+        "assigned_labs": [],
+        "assigned_surgery": null
+      }
+    },
+    {
+      "name": "Full workflow: status after each step",
+      "patient_id": "12346",
+      "turns": [
+        {
+          "prompt": "Get the medical records of patient 12346 and check her status. Then assign lab Liver function tests for patient 12346 and check her status. Then assign surgery Laparoscopic cholecystectomy for patient 12346 and check her status.",
+          "expected_calls": [
+            [
+              "search_patient_data",
+              {
+                "query": "12346"
+              }
+            ],
+            [
+              "get_patient_status",
+              {
+                "patient_id": "12346"
+              }
+            ],
+            [
+              "assign_patient_labs",
+              {
+                "lab_name": "Liver function tests",
+                "patient_id": "12346"
+              }
+            ],
+            [
+              "get_patient_status",
+              {
+                "patient_id": "12346"
+              }
+            ],
+            [
+              "assign_patient_surgery",
+              {
+                "surgery_name": "Laparoscopic cholecystectomy",
+                "patient_id": "12346"
+              }
+            ],
+            [
+              "get_patient_status",
+              {
+                "patient_id": "12346"
+              }
+            ]
+          ]
+        }
+      ],
+      "snapshot": {
+        "admission_approved": true,
+        "assigned_labs": [
+          "CBC",
+          "Coagulation panel",
+          "Blood typing",
+          "Liver function tests"
+        ],
+        "assigned_surgery": "Laparoscopic cholecystectomy"
+      }
+    }
+  ],
+  "runs": {
+    "correct": {
+      "parser": "parse_tool_calls",
+      "labels": [
+        "get_patient_status",
+        "search_patient_data",
+        "approve_patient_request",
+        "assign_patient_labs",
+        "assign_patient_surgery"
+      ],
+      "scenarios": [
+        {
+          "name": "Happy path: admission -> labs -> surgery",
+          "turn_calls": [
+            [
+              [
+                "get_patient_status",
+                {
+                  "patient_id": "12345"
+                }
+              ],
+              [
+                "approve_patient_request",
+                {
+                  "query": "REQ-12345"
+                }
+              ]
+            ],
+            [
+              [
+                "get_patient_status",
+                {
+                  "patient_id": "12345"
+                }
+              ],
+              [
+                "assign_patient_labs",
+                {
+                  "lab_name": "CBC",
+                  "patient_id": "12345"
+                }
+              ]
+            ],
+            [
+              [
+                "get_patient_status",
+                {
+                  "patient_id": "12345"
+                }
+              ],
+              [
+                "assign_patient_surgery",
+                {
+                  "surgery_name": "Appendectomy",
+                  "patient_id": "12345"
+                }
+              ]
+            ]
+          ],
+          "snapshot": {
+            "admission_approved": true,
+            "assigned_labs": [
+              "CBC"
+            ],
+            "assigned_surgery": "Appendectomy"
+          },
+          "other_patients_unchanged": true,
+          "count_scores": {
+            "tp": 3,
+            "fp": 3,
+            "fn": 3,
+            "precision": 0.5,
+            "recall": 0.5,
+            "f1": 0.5
+          },
+          "expected_count": 6,
+          "actual_count": 6,
+          "matched_fields": 3,
+          "total_fields": 3,
+          "final_state_score": 1.0,
+          "snapshot_similarity": 1.0000001192092896
+        },
+        {
+          "name": "Already on the ward: no repeated approval",
+          "turn_calls": [
+            [
+              [
+                "get_patient_status",
+                {
+                  "patient_id": "12346"
+                }
+              ]
+            ],
+            [
+              [
+                "search_patient_data",
+                {
+                  "query": "12346"
+                }
+              ]
+            ],
+            [
+              [
+                "search_patient_data",
+                {
+                  "query": "12346"
+                }
+              ]
+            ]
+          ],
+          "snapshot": {
+            "admission_approved": true,
+            "assigned_labs": [
+              "CBC",
+              "Coagulation panel",
+              "Blood typing"
+            ],
+            "assigned_surgery": null
+          },
+          "other_patients_unchanged": true,
+          "count_scores": {
+            "tp": 3,
+            "fp": 0,
+            "fn": 2,
+            "precision": 1.0,
+            "recall": 0.6,
+            "f1": 0.7499999999999999
+          },
+          "expected_count": 5,
+          "actual_count": 3,
+          "matched_fields": 1,
+          "total_fields": 3,
+          "final_state_score": 0.3333333333333333,
+          "snapshot_similarity": 0.8678888082504272
+        },
+        {
+          "name": "Senior patient: tests before admission",
+          "turn_calls": [
+            [
+              [
+                "get_patient_status",
+                {
+                  "patient_id": "12349"
+                }
+              ],
+              [
+                "assign_patient_labs",
+                {
+                  "lab_name": "ECG",
+                  "patient_id": "12349"
+                }
+              ]
+            ],
+            [
+              [
+                "get_patient_status",
+                {
+                  "patient_id": "12349"
+                }
+              ],
+              [
+                "approve_patient_request",
+                {
+                  "query": "REQ-12349"
+                }
+              ]
+            ],
+            [
+              [
+                "search_patient_data",
+                {
+                  "query": "patient_id:12349"
+                }
+              ],
+              [
+                "assign_patient_surgery",
+                {
+                  "surgery_name": "Cholecystectomy",
+                  "patient_id": "12349"
+                }
+              ]
+            ]
+          ],
+          "snapshot": {
+            "admission_approved": true,
+            "assigned_labs": [
+              "ECG"
+            ],
+            "assigned_surgery": "Cholecystectomy"
+          },
+          "other_patients_unchanged": true,
+          "count_scores": {
+            "tp": 4,
+            "fp": 2,
+            "fn": 2,
+            "precision": 0.6666666666666666,
+            "recall": 0.6666666666666666,
+            "f1": 0.6666666666666666
+          },
+          "expected_count": 6,
+          "actual_count": 6,
+          "matched_fields": 3,
+          "total_fields": 3,
+          "final_state_score": 1.0,
+          "snapshot_similarity": 1.0
+        },
+        {
+          "name": "On hold: incomplete documentation",
+          "turn_calls": [
+            [
+              [
+                "get_patient_status",
+                {
+                  "patient_id": "12350"
+                }
+              ]
+            ]
+          ],
+          "snapshot": {
+            "admission_approved": false,
+            "assigned_labs": [],
+            "assigned_surgery": null
+          },
+          "other_patients_unchanged": true,
+          "count_scores": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "expected_count": 1,
+          "actual_count": 1,
+          "matched_fields": 3,
+          "total_fields": 3,
+          "final_state_score": 1.0,
+          "snapshot_similarity": 1.0000001192092896
+        },
+        {
+          "name": "Full workflow: status after each step",
+          "turn_calls": [
+            [
+              [
+                "get_patient_status",
+                {
+                  "patient_id": "12346"
+                }
+              ],
+              [
+                "search_patient_data",
+                {
+                  "query": "patient_id:12346"
+                }
+              ],
+              [
+                "assign_patient_labs",
+                {
+                  "lab_name": "Liver function tests",
+                  "patient_id": "12346"
+                }
+              ],
+              [
+                "search_patient_data",
+                {
+                  "query": "patient_id:12346"
+                }
+              ],
+              [
+                "assign_patient_surgery",
+                {
+                  "surgery_name": "Laparoscopic cholecystectomy",
+                  "patient_id": "12346"
+                }
+              ],
+              [
+                "search_patient_data",
+                {
+                  "query": "patient_id:12346"
+                }
+              ],
+              [
+                "assign_patient_surgery",
+                {
+                  "surgery_name": "Laparoscopic cholecystectomy",
+                  "patient_id": "12346"
+                }
+              ]
+            ]
+          ],
+          "snapshot": {
+            "admission_approved": true,
+            "assigned_labs": [
+              "CBC",
+              "Coagulation panel",
+              "Blood typing",
+              "Liver function tests"
+            ],
+            "assigned_surgery": "Laparoscopic cholecystectomy"
+          },
+          "other_patients_unchanged": true,
+          "count_scores": {
+            "tp": 4,
+            "fp": 3,
+            "fn": 2,
+            "precision": 0.5714285714285714,
+            "recall": 0.6666666666666666,
+            "f1": 0.6153846153846153
+          },
+          "expected_count": 6,
+          "actual_count": 7,
+          "matched_fields": 3,
+          "total_fields": 3,
+          "final_state_score": 1.0,
+          "snapshot_similarity": 0.9999998211860657
+        }
+      ],
+      "classification_report": {
+        "get_patient_status": {
+          "precision": 0.375,
+          "recall": 1.0,
+          "f1-score": 0.5454545454545454,
+          "support": 3.0
+        },
+        "search_patient_data": {
+          "precision": 1.0,
+          "recall": 0.4444444444444444,
+          "f1-score": 0.6153846153846154,
+          "support": 9.0
+        },
+        "approve_patient_request": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 2.0
+        },
+        "assign_patient_labs": {
+          "precision": 1.0,
+          "recall": 0.75,
+          "f1-score": 0.8571428571428571,
+          "support": 4.0
+        },
+        "assign_patient_surgery": {
+          "precision": 1.0,
+          "recall": 0.75,
+          "f1-score": 0.8571428571428571,
+          "support": 4.0
+        },
+        "micro avg": {
+          "precision": 0.75,
+          "recall": 0.6818181818181818,
+          "f1-score": 0.7142857142857143,
+          "support": 22.0
+        },
+        "macro avg": {
+          "precision": 0.875,
+          "recall": 0.788888888888889,
+          "f1-score": 0.775024975024975,
+          "support": 22.0
+        },
+        "weighted avg": {
+          "precision": 0.9147727272727273,
+          "recall": 0.6818181818181818,
+          "f1-score": 0.7287258196349105,
+          "support": 22.0
+        },
+        "samples avg": {
+          "precision": 0.7727272727272727,
+          "recall": 0.6818181818181818,
+          "f1-score": 0.712121212121212,
+          "support": 22.0
+        }
+      },
+      "matrices": [
+        [
+          [
+            3,
+            5
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        [
+          [
+            2,
+            0
+          ],
+          [
+            5,
+            4
+          ]
+        ],
+        [
+          [
+            9,
+            0
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        [
+          [
+            7,
+            0
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        [
+          [
+            7,
+            0
+          ],
+          [
+            1,
+            3
+          ]
+        ]
+      ]
+    },
+    "broken": {
+      "parser": "parse_tool_calls_broken",
+      "labels": [
+        "get_patient_status",
+        "search_patient_data",
+        "approve_patient_request",
+        "assign_patient_labs",
+        "assign_patient_surgery"
+      ],
+      "scenarios": [
+        {
+          "name": "Happy path: admission -> labs -> surgery",
+          "turn_calls": [
+            [
+              [
+                "get_patient_status",
+                {
+                  "patient_id": "12345",
+                  "query": "REQ-12345"
+                }
+              ]
+            ],
+            [
+              [
+                "get_patient_status",
+                {
+                  "patient_id": "12345",
+                  "lab_name": "CBC"
+                }
+              ]
+            ],
+            [
+              [
+                "get_patient_status",
+                {
+                  "patient_id": "12345",
+                  "surgery_name": "Appendectomy"
+                }
+              ]
+            ]
+          ],
+          "snapshot": {
+            "admission_approved": false,
+            "assigned_labs": [],
+            "assigned_surgery": null
+          },
+          "other_patients_unchanged": true,
+          "count_scores": {
+            "tp": 0,
+            "fp": 3,
+            "fn": 6,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "expected_count": 6,
+          "actual_count": 3,
+          "matched_fields": 0,
+          "total_fields": 3,
+          "final_state_score": 0.0,
+          "snapshot_similarity": 0.8747951984405518
+        },
+        {
+          "name": "Already on the ward: no repeated approval",
+          "turn_calls": [
+            [
+              [
+                "get_patient_status",
+                {
+                  "patient_id": "12346"
+                }
+              ]
+            ],
+            [
+              [
+                "search_patient_data",
+                {
+                  "query": "12346"
+                }
+              ]
+            ],
+            [
+              [
+                "search_patient_data",
+                {
+                  "query": "12346"
+                }
+              ]
+            ]
+          ],
+          "snapshot": {
+            "admission_approved": true,
+            "assigned_labs": [
+              "CBC",
+              "Coagulation panel",
+              "Blood typing"
+            ],
+            "assigned_surgery": null
+          },
+          "other_patients_unchanged": true,
+          "count_scores": {
+            "tp": 3,
+            "fp": 0,
+            "fn": 2,
+            "precision": 1.0,
+            "recall": 0.6,
+            "f1": 0.7499999999999999
+          },
+          "expected_count": 5,
+          "actual_count": 3,
+          "matched_fields": 1,
+          "total_fields": 3,
+          "final_state_score": 0.3333333333333333,
+          "snapshot_similarity": 0.8678888082504272
+        },
+        {
+          "name": "Senior patient: tests before admission",
+          "turn_calls": [
+            [
+              [
+                "get_patient_status",
+                {
+                  "patient_id": "12349",
+                  "lab_name": "ECG"
+                }
+              ]
+            ],
+            [
+              [
+                "get_patient_status",
+                {
+                  "patient_id": "12349",
+                  "query": "REQ-12349"
+                }
+              ]
+            ],
+            [
+              [
+                "search_patient_data",
+                {
+                  "query": "patient 12349",
+                  "surgery_name": "Cholecystectomy",
+                  "patient_id": "12349"
+                }
+              ]
+            ]
+          ],
+          "snapshot": {
+            "admission_approved": false,
+            "assigned_labs": [],
+            "assigned_surgery": null
+          },
+          "other_patients_unchanged": true,
+          "count_scores": {
+            "tp": 1,
+            "fp": 2,
+            "fn": 5,
+            "precision": 0.3333333333333333,
+            "recall": 0.16666666666666666,
+            "f1": 0.2222222222222222
+          },
+          "expected_count": 6,
+          "actual_count": 3,
+          "matched_fields": 0,
+          "total_fields": 3,
+          "final_state_score": 0.0,
+          "snapshot_similarity": 0.879336953163147
+        },
+        {
+          "name": "On hold: incomplete documentation",
+          "turn_calls": [
+            [
+              [
+                "get_patient_status",
+                {
+                  "patient_id": "12350"
+                }
+              ]
+            ]
+          ],
+          "snapshot": {
+            "admission_approved": false,
+            "assigned_labs": [],
+            "assigned_surgery": null
+          },
+          "other_patients_unchanged": true,
+          "count_scores": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "expected_count": 1,
+          "actual_count": 1,
+          "matched_fields": 3,
+          "total_fields": 3,
+          "final_state_score": 1.0,
+          "snapshot_similarity": 1.0000001192092896
+        },
+        {
+          "name": "Full workflow: status after each step",
+          "turn_calls": [
+            [
+              [
+                "get_patient_status",
+                {
+                  "patient_id": "12346",
+                  "query": "patient_id:12346",
+                  "lab_name": "Liver function tests",
+                  "surgery_name": "Laparoscopic cholecystectomy"
+                }
+              ]
+            ]
+          ],
+          "snapshot": {
+            "admission_approved": true,
+            "assigned_labs": [
+              "CBC",
+              "Coagulation panel",
+              "Blood typing"
+            ],
+            "assigned_surgery": null
+          },
+          "other_patients_unchanged": true,
+          "count_scores": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 5,
+            "precision": 1.0,
+            "recall": 0.16666666666666666,
+            "f1": 0.2857142857142857
+          },
+          "expected_count": 6,
+          "actual_count": 1,
+          "matched_fields": 1,
+          "total_fields": 3,
+          "final_state_score": 0.3333333333333333,
+          "snapshot_similarity": 0.8678888082504272
+        }
+      ],
+      "classification_report": {
+        "get_patient_status": {
+          "precision": 0.375,
+          "recall": 1.0,
+          "f1-score": 0.5454545454545454,
+          "support": 3.0
+        },
+        "search_patient_data": {
+          "precision": 1.0,
+          "recall": 0.3333333333333333,
+          "f1-score": 0.5,
+          "support": 9.0
+        },
+        "approve_patient_request": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 2.0
+        },
+        "assign_patient_labs": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 4.0
+        },
+        "assign_patient_surgery": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 4.0
+        },
+        "micro avg": {
+          "precision": 0.5454545454545454,
+          "recall": 0.2727272727272727,
+          "f1-score": 0.36363636363636365,
+          "support": 22.0
+        },
+        "macro avg": {
+          "precision": 0.275,
+          "recall": 0.26666666666666666,
+          "f1-score": 0.20909090909090908,
+          "support": 22.0
+        },
+        "weighted avg": {
+          "precision": 0.4602272727272727,
+          "recall": 0.2727272727272727,
+          "f1-score": 0.27892561983471076,
+          "support": 22.0
+        },
+        "samples avg": {
+          "precision": 0.5454545454545454,
+          "recall": 0.3409090909090909,
+          "f1-score": 0.39999999999999997,
+          "support": 22.0
+        }
+      },
+      "matrices": [
+        [
+          [
+            3,
+            5
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        [
+          [
+            2,
+            0
+          ],
+          [
+            6,
+            3
+          ]
+        ],
+        [
+          [
+            9,
+            0
+          ],
+          [
+            2,
+            0
+          ]
+        ],
+        [
+          [
+            7,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        [
+          [
+            7,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ]
+      ]
+    }
+  },
+  "trace_file": "lab-traces.json",
+  "executed_cells": 16
+}

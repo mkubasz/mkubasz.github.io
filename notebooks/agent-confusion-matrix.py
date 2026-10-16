@@ -3,6 +3,7 @@
 # dependencies = [
 #     "marimo==0.25.1",
 #     "marimo-studio==0.3.0",
+#     "marimo-export==0.1.4",
 #     "numpy>=2.0,<3"
 # ]
 #

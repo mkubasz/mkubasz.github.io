@@ -32,6 +32,10 @@ A post is a [marimo](https://marimo.io/) notebook plus a
 - `notebooks/__marimo__/studio/<slug>/post/states.yaml` lists the control values to pre-render
 - `src/content/blog/<slug>.md` holds only the frontmatter, with `notebook: true`, so the post shows up in `/blog`
 
+The notebook headers pin `marimo-export==0.1.4` alongside Studio 0.3.0. Newer
+exporter output includes control metadata that this Studio browser runtime
+does not accept; keep these versions compatible when upgrading.
+
 ```bash
 # write and preview
 uvx --with marimo-studio==0.3.0 marimo edit notebooks/<slug>.py --sandbox --watch
