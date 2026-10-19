@@ -697,6 +697,22 @@ def adaptation_methods(mo):
     studied domain and task adaptation; their results support experiments,
     not a requirement that every project pass through the same sequence.
     Check both domain improvement and loss of previous capabilities.
+
+    Language belongs to the domain too. Our offers are written in Polish,
+    and the tokenizer above needed four pieces for *Czajnik*: a hint that
+    Polish was rare in the text behind its vocabulary. CPT is the standard
+    way to teach a checkpoint a language and domain it saw rarely. It learns
+    from plain text, with no reviewed answers, so we can feed it large
+    amounts of Polish offers, descriptions and conditions. CPT keeps the
+    tokenizer's splits; it teaches the model how those pieces behave in
+    context. The Polish [Bielik 7B v0.1](https://arxiv.org/abs/2410.18565)
+    followed this order: continued pretraining of Mistral 7B on Polish text
+    mixed with English, the original tokenizer kept, then a separate SFT
+    stage. The English share matters.
+    [Elhady and colleagues](https://aclanthology.org/2025.acl-long.1547/)
+    found that leaving the original language out of CPT led to forgetting
+    and weaker abilities in the new language. Any gain on our offers still
+    has to be measured, together with what the model loses.
     """)
     return
 

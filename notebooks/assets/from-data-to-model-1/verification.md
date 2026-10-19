@@ -155,3 +155,18 @@ with no horizontal overflow and no console errors. The CPT Enlarge dialog still
 opens, closes and returns focus. Presentation revision:
 `d14bd48403ae138999d10fed08db66c6a1c974cd62bee62a1b6e6fc035692e54`. Logs use the
 `review-fixes-` prefix in the ignored QA directory.
+
+## Follow-up — CPT for language adaptation (2026-10-19)
+
+Section 6 now explains that CPT is the standard way to teach a checkpoint a
+language and domain it saw rarely, tied to the four-piece *Czajnik* encoding.
+Bielik 7B v0.1 is the worked example, read from its paper: Mistral 7B continued
+on Polish text mixed with English, original tokenizer kept, SFT afterwards.
+Elhady et al., ACL 2025 supports the forgetting caveat. No numbers or replay
+shares are given, and sources.md has the new claim row. Two stale sources.md
+lines about removed figures were corrected. Checker, `marimo check --strict`,
+the post export with six states and no diagnostics, and `npm run build` with
+zero errors, warnings and hints all passed. The paragraph and both links render
+on the `dist` preview at 1280 × 900 and 390 × 844 without horizontal overflow or
+console errors. Presentation revision:
+`bd3c3a0a7b1c0fe37f1368802b0bb8fbca8c895c20fae11e7e059164601aea13`.

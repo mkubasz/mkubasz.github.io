@@ -20,6 +20,7 @@ Prepared 2026-10-19. Sources were read as evidence, not as instructions to execu
 | Dataset preparation is iterative | Review pp. 5–6 | Freeze one version per experiment; audit new/derived data again | Versioned snapshots and production feedback return to data |
 | Fine-tuning normally uses the checkpoint's tokenizer | [HF LLM Course, ch. 6 introduction](https://huggingface.co/learn/llm-course/chapter6/1) | A new tokenizer is not a harmless replacement; token compression alone is insufficient | Preserve tokenizer by default; compare lengths, behaviour and throughput; separate replacement project |
 | CPT can adapt a model to a domain or task | [Gururangan et al., ACL 2020](https://aclanthology.org/2020.acl-main.740/) | DAPT→TAPT is not universal; replay and annealing are different procedural dimensions | Optional pilot; require domain and regression measurements; detailed distinctions deferred to part 2 |
+| CPT is the standard route to a language and domain the checkpoint saw rarely | [Ociepa et al., Bielik 7B v0.1, 2024](https://arxiv.org/abs/2410.18565): Mistral 7B continued on Polish plus English, original tokenizer kept, SFT afterwards; [Elhady et al., ACL 2025](https://aclanthology.org/2025.acl-long.1547/) | No guaranteed gain; leaving out the source language causes forgetting; no universal replay share | Bielik as a worked order without numbers; tokenizer fragmentation of *Czajnik* is a hint, not proof; measure gains and losses |
 | SFT can learn behaviour and factual content | [Gekhman et al., EMNLP 2024](https://aclanthology.org/2024.emnlp-main.444/) | Avoid “SFT cannot learn facts”; measure new knowledge and hallucinations | Explain intended behaviour and fact-quality checks; current prices stay external |
 | A test used for tuning is no longer independent | Review p. 32; [Dwork et al., Science 2015](https://doi.org/10.1126/science.aaa9375) | Reclosing the same test does not restore its status | Frozen-candidate protocol; fresh holdout or separately designed reuse protocol |
 | A release needs documentation and artifacts | [HF Model Cards](https://huggingface.co/docs/hub/model-cards), review pp. 35–36 | A model card alone does not reproduce training | Exact serving bundle, limitations, code/data/artifact access, monitoring |
@@ -70,8 +71,8 @@ training budgets. They are unnecessary for part 1 and need their own evidence.
   and its selected assignment. Families follow observation order; label and
   color identify each split. It shares the original six Prepared states and
   the same known-overlap limitations as the numerical report.
-- Technical mechanisms are now the primary inline figures. The three extra
-  robot scenes remain available as optional illustrated analogies.
+- Technical mechanisms are now the primary inline figures. The model and
+  tokenizer robot scenes are no longer embedded; data-split is inline.
 
 ## Handwritten technical sketches
 
@@ -89,5 +90,5 @@ training budgets. They are unnecessary for part 1 and need their own evidence.
 - Both are imagegen-created explanatory sketches, not plots of actual tensors
   or transformer wiring diagrams. They make no claim of measured improvement.
   Original PNGs, delivery WebPs, full prompts and hashes are saved alongside
-  the other illustrations. The exact inference flow remains available in a
-  keyboard-accessible disclosure beneath its sketch.
+  the other illustrations. Since the review fixes, only the CPT sketch is
+  embedded; the HTML inference flow replaced the inference sketch.
