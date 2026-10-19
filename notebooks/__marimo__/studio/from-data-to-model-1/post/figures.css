@@ -1,0 +1,106 @@
+/* One source for figures in the view and standalone notebook. */
+.ft-process, .ft-checkpoint { margin: 1.6rem 0; color: #213448; }
+.ft-process figcaption, .ft-checkpoint figcaption, .ft-small { color: #495a65; font: .83rem/1.65 "Noto Sans", system-ui, sans-serif; }
+.ft-board { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.8rem 1.2rem; list-style: none; padding: 0; margin: 0 0 1rem; }
+.ft-board li { border-top: 2px solid #547b8b; padding: .7rem 0 0; margin: 0; }
+.ft-board span { display: block; font: .72rem/1.6 "Source Code Pro", monospace; color: #495a65; }
+.ft-board b { display: block; font: 700 .96rem/1.5 "Montserrat", system-ui, sans-serif; margin: .35rem 0; }
+.ft-board small { display: block; font: .8rem/1.6 "Noto Sans", system-ui, sans-serif; }
+.ft-board .ft-optional { border-top-style: dashed; }
+.ft-board .ft-feedback { border-top-color: #b15a3c; }
+.ft-experiment { border-top: 2px solid #547b8b; border-bottom: 1px solid #ccd5da; margin: 1.5rem 0; padding: 1.1rem 0; }
+.ft-trunk { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 1rem; align-items: center; }
+.ft-node { padding: .75rem 1rem; border: 1px solid #93a9b3; background: #f2f5f6; }
+.ft-node code { display: block; font: 600 .9rem/1.6 "Source Code Pro", monospace; }
+.ft-node span { display: block; font: .83rem/1.6 "Noto Sans", system-ui, sans-serif; }
+.ft-node.is-focus { outline: 2px solid #b15a3c; outline-offset: 2px; background: #fff1e8; }
+.ft-arrow { color: #547b8b; font-size: 1.3rem; }
+.ft-branches { margin: 1rem 0 1rem calc(50% + 1.5rem); border-left: 2px solid #93a9b3; padding-left: 1.5rem; display: grid; gap: 1rem; }
+.ft-branches .ft-node { position: relative; }
+.ft-branches .ft-node::before { content: ""; position: absolute; width: 1.5rem; height: 1px; background: #93a9b3; right: 100%; top: 50%; }
+.ft-verdict { border-left: 3px solid #b15a3c; padding: .2rem 0 .2rem 1rem; margin: 1rem 0 .5rem; font: .95rem/1.75 "Noto Sans", system-ui, sans-serif; color: #213448; }
+.ft-verdict p { margin: .5rem 0 0; }
+.ft-counts { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.2rem 0 .5rem; }
+.ft-counts dt { font: .83rem/1.6 "Noto Sans", system-ui, sans-serif; color: #495a65; }
+.ft-counts dd { margin: .3rem 0; font: 700 1.7rem/1.3 "Montserrat", system-ui, sans-serif; color: #213448; }
+.ft-time-status { color: #213448; font: 600 .9rem/1.65 "Noto Sans", system-ui, sans-serif; }
+@media (max-width: 560px) {
+  .ft-board { grid-template-columns: 1fr; gap: .8rem; }
+  .ft-board li { display: grid; grid-template-columns: 6rem 1fr; column-gap: .6rem; padding-top: .6rem; }
+  .ft-board li > span { grid-row: span 2; }
+  .ft-board b { margin: 0; }
+  .ft-board small { grid-column: 2; }
+  .ft-trunk { grid-template-columns: 1fr; gap: .5rem; }
+  .ft-arrow { transform: rotate(90deg); justify-self: center; }
+  .ft-branches { margin-left: 1rem; padding-left: 1.3rem; }
+  .ft-branches .ft-node::before { width: 1.3rem; }
+  .ft-counts { gap: 1rem; }
+  .ft-counts dd { font-size: 1.5rem; }
+}
+
+/* Process diagrams stay as text and shapes at every viewport size. */
+.ft-technical { margin: 1.8rem 0; padding: 1.2rem 0; border-top: 2px solid #547b8b; border-bottom: 1px solid #ccd5da; color: #213448; font: .9rem/1.65 "Noto Sans", system-ui, sans-serif; }
+.ft-technical * { box-sizing: border-box; }
+.ft-technical header { margin-bottom: 1.1rem; }
+.ft-technical .ft-kicker { margin: 0 0 .35rem; color: #35685e; text-transform: uppercase; letter-spacing: .06em; font: 600 .7rem/1.6 "Source Code Pro", monospace; }
+.ft-technical h3 { margin: 0; font: 500 1.1rem/1.5 "Montserrat", system-ui, sans-serif; }
+.ft-technical code { font: .78rem/1.6 "Source Code Pro", monospace; overflow-wrap: anywhere; }
+.ft-technical figcaption { margin-top: 1rem; color: #495a65; font: .81rem/1.7 "Noto Sans", system-ui, sans-serif; }
+.ft-io { padding: .65rem .9rem; border-left: 3px solid #547b8b; background: #f2f5f6; }
+.ft-io > span { color: #495a65; font: .7rem/1.6 "Source Code Pro", monospace; text-transform: uppercase; }
+.ft-io p { margin: .25rem 0 0; }
+.ft-io-output { border-color: #35685e; background: #edf3ed; }
+.ft-generation { display: grid; grid-template-columns: 1fr 1.6fr 1.1fr 1.1fr; gap: 1.1rem; padding: 0; margin: 1.4rem 0 0; list-style: none; }
+.ft-generation > li { min-width: 0; position: relative; margin: 0; padding: .7rem .65rem; border: 1px solid #93a9b3; }
+.ft-generation > li + li::before { content: "→"; position: absolute; right: calc(100% + .2rem); top: 2rem; color: #547b8b; }
+.ft-generation .ft-forward { background: #edf3f6; border-color: #547b8b; }
+.ft-generation .ft-step { display: block; color: #495a65; font: .65rem/1.6 "Source Code Pro", monospace; }
+.ft-generation b { display: block; margin-top: .4rem; font-family: "Montserrat", sans-serif; font-size: .85rem; }
+.ft-generation p { margin: .6rem 0; font-size: .8rem; line-height: 1.7; }
+.ft-generation-loop { display: flex; align-items: center; gap: .8rem; margin: .7rem 0 1rem; color: #35685e; }
+.ft-generation-loop > span { font-size: 2rem; line-height: 1; }
+.ft-generation-loop p { margin: 0; font-size: .8rem; }
+.ft-encoding-arrow { margin: .65rem 0; color: #495a65; display: flex; gap: .65rem; align-items: center; }
+.ft-encoding-arrow > span { font-size: 1.5rem; color: #547b8b; }
+.ft-token-strip { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: .4rem; padding: 0; margin: 1rem 0; list-style: none; }
+.ft-token-strip > li { min-width: 0; margin: 0; padding: .4rem .2rem; text-align: center; border: 1px solid #547b8b; background: #e6eef3; }
+.ft-token-strip > li.ft-word-1 { border-color: #35685e; background: #e3efe4; }
+.ft-token-strip > li.ft-word-2 { border-color: #b15a3c; background: #fbeadf; }
+.ft-token-strip .ft-token-position { display: block; color: #495a65; font: .62rem/1.5 "Source Code Pro", monospace; }
+.ft-token-strip code { display: block; padding: .4rem 0; font-size: 1rem; white-space: pre; }
+.ft-token-strip small { display: block; font: .65rem/1.6 "Source Code Pro", monospace; }
+.ft-embedding-flow { display: flex; flex-wrap: wrap; align-items: center; gap: .65rem; padding: .8rem 0; margin-top: .6rem; border-top: 1px solid #ccd5da; }
+.ft-embedding-flow b { font-size: .82rem; }
+.ft-embedding-flow > span { color: #547b8b; }
+.ft-families { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: .7rem; padding: 0; margin: 1rem 0; list-style: none; }
+.ft-families > li { min-width: 0; margin: 0; }
+.ft-family-heading { padding-bottom: .55rem; border-bottom: 1px solid #ccd5da; margin-bottom: .65rem; }
+.ft-family-heading b { display: block; font: 600 .8rem/1.6 "Source Code Pro", monospace; }
+.ft-family-heading small { display: block; color: #495a65; font: .62rem/1.6 "Source Code Pro", monospace; }
+.ft-assignment { text-align: center; border: 1px solid #93a9b3; padding: .4rem .2rem; }
+.ft-assignment small { display: block; font: .65rem/1.6 "Source Code Pro", monospace; }
+.ft-assignment b { display: block; font-size: .78rem; font-weight: 600; }
+.ft-part-train { background: #edf3ed; }
+.ft-part-validation { background: #eaf0f6; }
+.ft-part-test { background: #faf0e8; }
+.ft-family-link { display: block; text-align: center; font-size: 1.15rem; color: #547b8b; line-height: 1.6; }
+.ft-family.is-crossed .ft-family-link { color: #b15a3c; font-weight: 700; }
+.ft-family.is-crossed .ft-assignment { border-color: #b15a3c; }
+@media (max-width: 700px) {
+  .ft-generation { grid-template-columns: 1fr; gap: 1.6rem; }
+  .ft-generation > li { padding: .8rem 1rem; }
+  .ft-generation > li + li::before { content: "↓"; top: -1.6rem; right: 50%; }
+  .ft-generation p { margin: .4rem 0; font-size: .87rem; }
+  .ft-generation b { font-size: .92rem; }
+  .ft-generation .ft-step { font-size: .72rem; }
+  .ft-token-strip { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .ft-token-strip small { font-size: .7rem; }
+  .ft-families { grid-template-columns: 1fr; gap: 1rem; }
+  .ft-families > li { display: grid; grid-template-columns: 1fr 1rem 1fr; column-gap: .6rem; }
+  .ft-family-heading { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: baseline; margin-bottom: .5rem; }
+  .ft-family-heading small { font-size: .72rem; }
+  .ft-family-link { align-self: center; transform: rotate(-90deg); }
+  .ft-assignment b { font-size: .88rem; }
+  .ft-assignment small { font-size: .72rem; }
+  .ft-technical { margin: 1.3rem 0; }
+}

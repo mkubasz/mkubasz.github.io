@@ -1,0 +1,21 @@
+schema: marimo-export.states.v1
+default_state: regression-rows
+states:
+  success-rows:
+    checkpoint_choice: [Successful variant]
+    split_choice: [Split individual rows]
+  success-groups:
+    checkpoint_choice: [Successful variant]
+    split_choice: [Keep groups and time]
+  regression-rows:
+    checkpoint_choice: [Regression after SFT]
+    split_choice: [Split individual rows]
+  regression-groups:
+    checkpoint_choice: [Regression after SFT]
+    split_choice: [Keep groups and time]
+  data-rows:
+    checkpoint_choice: [Incorrect training data]
+    split_choice: [Split individual rows]
+  data-groups:
+    checkpoint_choice: [Incorrect training data]
+    split_choice: [Keep groups and time]

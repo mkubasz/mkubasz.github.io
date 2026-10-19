@@ -1,0 +1,95 @@
+{
+  "repo": "HuggingFaceTB/SmolLM2-135M",
+  "revision": "93efa2f097d58c2a74874c7e644dbc9b0cee75a2",
+  "tokenizer_sha256": "9ca9acddb6525a194ec8ac7a87f24fbba7232a9a15ffa1af0c1224fcd888e47c",
+  "tokenizers_version": "0.22.1",
+  "text": "Czajnik 119 zł",
+  "add_special_tokens": false,
+  "chat_template_applied": false,
+  "tokens": [
+    "C",
+    "z",
+    "aj",
+    "nik",
+    "Ġ",
+    "1",
+    "1",
+    "9",
+    "Ġz",
+    "ÅĤ"
+  ],
+  "ids": [
+    51,
+    106,
+    1346,
+    21599,
+    216,
+    33,
+    33,
+    41,
+    1892,
+    25954
+  ],
+  "decoded_pieces": [
+    "C",
+    "z",
+    "aj",
+    "nik",
+    " ",
+    "1",
+    "1",
+    "9",
+    " z",
+    "ł"
+  ],
+  "offsets": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      4,
+      7
+    ],
+    [
+      7,
+      8
+    ],
+    [
+      8,
+      9
+    ],
+    [
+      9,
+      10
+    ],
+    [
+      10,
+      11
+    ],
+    [
+      11,
+      13
+    ],
+    [
+      13,
+      14
+    ]
+  ],
+  "decoded": "Czajnik 119 zł",
+  "model_config": {
+    "model_type": "llama",
+    "hidden_size": 576,
+    "num_hidden_layers": 30,
+    "vocab_size": 49152
+  },
+  "scope": "Real tokenizer encoding of a fictional offer title. Config shapes are schematic; no model weights, inference or quality measurements."
+}

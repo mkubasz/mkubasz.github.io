@@ -1,0 +1,97 @@
+{
+  "tool": "built-in image_gen",
+  "kind": "editorial illustrations and conceptual handwritten process diagrams",
+  "date": "2026-10-19",
+  "style_reference": "notebooks/assets/tool-evaluation/tools-matrix-sketch.webp",
+  "images": [
+    {
+      "file": "market.png",
+      "delivery": "market.webp",
+      "prompt": "Use case: illustration-story. Asset: a standalone wide editorial illustration for an English technical blog, approximately 3:2 landscape. Match the reference illustration visible in this conversation: hand-drawn blue ink, loose pencil outlines, subtle watercolor washes on warm ivory textured sketchbook paper; muted sage green, dusty blue and a little terracotta. Same small friendly cream-and-blue robot with dark navy face. Refined, quiet educational illustration, generous breathing room, no photorealism, no 3D, no logos, no watermarks. Text only if specified, no extra labels. Scene: a small market stall where the robot thoughtfully compares three unbranded electric kettles and their paper price tags, with a shopping list and a small receipt. Each tag has a simple price-like mark but no readable numbers or writing. The robot holds a magnifying glass near a folded coupon; a small delivery parcel sits beside one kettle. Compose one coherent shopping scene, not an infographic or collage. The scene suggests that the cheapest sticker does not tell the whole story. Keep the robot large enough to read on a phone.",
+      "edit_prompt": "Edit this illustration with one precise correction: the robot currently has an extra hand/arm touching its chin. Remove that extra thinking hand and its forearm, reconstruct the cream body naturally in that area. The robot must have exactly two arms and two hands total: one holds the magnifying glass and the other holds the coupon. Preserve everything else exactly: robot face, market, kettles, composition, paper texture, ink and watercolor style, aspect ratio and colors. No added text or objects.",
+      "generation": "exec-e13944b7-4a72-47d3-9440-98f1e618672f.png",
+      "alt": "A small robot compares kettles, a coupon and a delivery parcel at a market stall.",
+      "sha256": {
+        "file": "1e3aeb5571a1595d6b258a5bf2bbbf07e3f7de0350f8fec484394ae6fa23237a",
+        "delivery": "f0a409263d48a698b98cff3c72fbb27c9e8c117910aeff623f6776e2bc0e799c"
+      }
+    },
+    {
+      "file": "sorting.png",
+      "delivery": "sorting.webp",
+      "prompt": "Use case: illustration-story. Asset: a standalone wide editorial illustration for an English technical blog, approximately 3:2 landscape. Match the reference illustration visible in this conversation: hand-drawn blue ink, loose pencil outlines, subtle watercolor washes on warm ivory textured sketchbook paper; muted sage green, dusty blue and a little terracotta. Same small friendly cream-and-blue robot with dark navy face. Refined, quiet educational illustration, generous breathing room, no photorealism, no 3D, no logos, no watermarks. Text only if specified, no extra labels. Scene: overhead view of a real desk, the same small robot at the edge carefully arranging handwritten-looking offer cards into three tidy groups on a long sheet of paper, with three small stacks of source receipts and a pencil. A pair of nearly identical kettle cards stays together, visibly joined with one sage paperclip; other cards depict a headset and a toaster. Use simple tiny product drawings and ink lines instead of readable text. A few terracotta corrections on one card show checking an incomplete offer. One coherent desk scene, warm paper, sparse composition, not a dashboard or formal diagram.",
+      "generation": "exec-f4b38a21-f3dd-4d68-8224-4db4678393d9.png",
+      "alt": "A robot sorts illustrated offer cards on a desk, keeping two copies together with a paperclip.",
+      "sha256": {
+        "file": "805b8557618768043e1370cfd74e08b0ac9f69a2d862ef0880b054f2483b7c65",
+        "delivery": "7b48e81f9c4af1a154e7866f1c5812de625670bae86ac0d01e1ee2e8a75ea0b4"
+      }
+    },
+    {
+      "file": "model.png",
+      "delivery": "model.webp",
+      "prompt": "Use case: illustration-story. Create a standalone 3:2 landscape editorial illustration for an English technical blog. Match the two illustrations already visible in the conversation: loose navy ink and pencil outlines, soft watercolor washes on textured warm ivory paper, muted sage, dusty blue and terracotta; the same small friendly cream-and-blue robot with an oval navy face, two round white eyes, short antenna, exactly two arms and two hands. Calm handcrafted sketchbook illustration, everyday shopping objects, clear subject readable on a phone, generous empty paper around the scene. No photorealism, no 3D, no logos, no watermark, no readable writing, no letters, no numbers. Scene: a compact computer on a tidy wooden workbench, the robot sitting beside it thoughtfully comparing one paper offer card with a kettle drawing, a small parcel for delivery and a shopper's checklist. The monitor contains only a simple kettle drawing and three large unticked or ticked condition boxes, with no writing. A thin cable connects the compact computer to the monitor. The robot uses one hand to point at the delivery parcel and the other to hold the offer card. A short neat stack of example cards sits beside the computer, subtly suggesting prior learning. One coherent scene showing a small local model helping to evaluate supplied evidence, not magically searching the Internet. Do not depict a brain, network diagram, server farm or rockets.",
+      "generation": "exec-55674bcd-c08d-4ce6-8ccd-07087afdb6c5.png",
+      "alt": "A small robot and compact computer compare a kettle offer, a delivery parcel and a shopper's checklist.",
+      "caption": "Fictional illustration: give the model the offer, delivery conditions and shopper's criteria. It evaluates the supplied evidence; the surrounding system fetches current offers.",
+      "sha256": {
+        "file": "260e18f5d0e4b3aa2f4366300c2a710e1ec474d25bd471f11f6081bdca83d4ed",
+        "delivery": "035708bee866e002eb3c172bb237cbbdf21900a71b8f70696a58325611b0534d"
+      }
+    },
+    {
+      "file": "tokenizer.png",
+      "delivery": "tokenizer.webp",
+      "prompt": "Use case: illustration-story. Create a standalone 3:2 landscape editorial illustration for an English technical blog. Match the two illustrations already visible in the conversation: loose navy ink and pencil outlines, soft watercolor washes on textured warm ivory paper, muted sage, dusty blue and terracotta; the same small friendly cream-and-blue robot with an oval navy face, two round white eyes, short antenna, exactly two arms and two hands. Calm handcrafted sketchbook illustration, everyday shopping objects, clear subject readable on a phone, generous empty paper around the scene. No photorealism, no 3D, no logos, no watermark, no readable writing, no letters, no numbers. Scene: overhead close view of a paper workbench. The robot at the lower edge gently arranges a short line of small rectangular paper fragments cut from one long offer receipt into a row of muted blue and sage trays, like preparing pieces that fit a familiar machine. Some fragments are longer and some shorter; each has a few loose ink strokes, never readable text. At the left a mostly intact receipt with a little kettle drawing suggests the original offer text. A small simple compact computer with a card slot sits at the right; the row of pieces leads toward it. A pair of ordinary scissors lies idle on the table, with no action of cutting letters or robot body. One coherent editorial metaphor for breaking text into smaller pieces before the model; do not imply that each token is a whole word, do not show actual token boundaries or invented numerical IDs. Exactly two robot hands.",
+      "generation": "exec-718a2322-ffd6-45b4-bba6-9c2fcb9a163d.png",
+      "alt": "A robot arranges differently sized paper fragments from an offer receipt into a sequence leading to a compact computer.",
+      "caption": "Fictional illustration: paper pieces stand for tokens. Their drawn edges are not a real tokenization; actual boundaries and IDs depend on the checkpoint's tokenizer, and a token need not be a whole word.",
+      "sha256": {
+        "file": "0a671e4a982f194e1b45c56309e44f2cb22b6bb9457b6b589725eb3c7f88f54f",
+        "delivery": "33a171c050fcc04aa5ea065dc31e348afcbcc3d18983a3f72c216c8a810d5385"
+      }
+    },
+    {
+      "file": "data-split.png",
+      "delivery": "data-split.webp",
+      "prompt": "Use case: illustration-story. Create a standalone 3:2 landscape editorial illustration for an English technical blog. Match the two illustrations already visible in the conversation: loose navy ink and pencil outlines, soft watercolor washes on textured warm ivory paper, muted sage, dusty blue and terracotta; the same small friendly cream-and-blue robot with an oval navy face, two round white eyes, short antenna, exactly two arms and two hands. Calm handcrafted sketchbook illustration, everyday shopping objects, clear subject readable on a phone, generous empty paper around the scene. No photorealism, no 3D, no logos, no watermark, no readable writing, no letters, no numbers. Scene: overhead view of a long tabletop with three shallow open paper document trays placed in a gentle left-to-right progression. Each tray contains small offer cards with mixed tiny drawings of kettles, headphones and toasters. Several bundles consist of two matching cards held firmly together by a paperclip; each bundle is entirely inside one tray, never separated between trays. The first tray sage, second dusty blue, last terracotta. The last tray has a closed ivory envelope resting on top to suggest a final assessment kept aside. A simple long calendar strip beneath all trays has only empty squares with a small arrow pointing to the right; no writing or dates. The friendly robot at one end holds a clipped pair of matching cards just above the first tray, showing that related examples stay together. Each tray must contain mixed types of products, not one product category per tray. One coherent desk scene, not a dashboard, no percentages, no metrics, no text.",
+      "generation": "exec-d3b773af-9934-45c5-a3b1-251b0884cb62.png",
+      "alt": "A robot keeps matching offer cards clipped together in three trays arranged along a timeline, with a closed envelope in the test tray.",
+      "caption": "Clipped cards are one promotion family and stay together. The trays follow the timeline: learn from training, choose with validation, then open the sealed test envelope once to assess the frozen candidate.",
+      "sha256": {
+        "file": "df633349d5db5a979f45f594e037b3c296daacc855a13faecee713662e89ee33",
+        "delivery": "7f11df3d380256a6328b06c123d34de28726f01005e17dd35758c454e07f3e57"
+      }
+    },
+    {
+      "file": "inference-sketch.png",
+      "delivery": "inference-sketch.webp",
+      "role": "handwritten technical diagram",
+      "prompt": "Use case: scientific-educational. Asset: one standalone handwritten technical diagram for an English programming blog, landscape 3:2. Match the reference technical sketch just shown: navy blue pen and loose pencil on warm ivory textured paper, subtle dusty blue and sage watercolor fills, terracotta for feedback arrows. This is a clear technical whiteboard drawing, not a desk scene or a cartoon story. No decorative objects, no robot, no photorealism, no 3D, no logos, no watermark. Sparse balanced layout, large readable handwritten English labels, thick clean arrows, generous margins. Draw only the specified short text, no extra formulas, arbitrary numbers or metrics. Connection diagrams are explicitly conceptual. Main subject: TOKENS → MODEL → RESULT, a conceptual decoder-only language-model inference diagram. Use three large zones across the page. LEFT: large heading exactly \"token IDs\", below it three small stacked token rectangles labelled exactly \"51\", \"106\", \"1346\" and an ellipsis indicating more IDs. Strong right-facing arrow leads into CENTER: a large hand-drawn network graph labelled exactly \"model\"; circles in three columns with connecting lines of varying thickness, suggesting parameters rather than literal transformer architecture. Under the graph write exactly \"fixed weights\". Strong arrow from graph goes to a small output token rectangle at upper RIGHT labelled exactly \"next token\". From that rectangle a downward arrow labelled exactly \"decode\" reaches a note headed exactly \"result\", with three plain wavy lines to represent an answer without claiming an actual generated answer. A separate terracotta curved arrow from the next-token rectangle returns under the graph to the input token stack; label it exactly \"append + repeat\". Ensure the repeat arrow adds a token to the input, not to the model weights. Use title exactly \"Inference\" at the top. No learning, gradient or loss arrows in this image. Actual input numbers are an excerpt from a real tokenizer fixture, but no real output or score is shown. Prioritize the graph, directional flow and six large labels; avoid tiny annotations.",
+      "generation": "exec-03d628e3-1e4e-45a3-a63c-5e2aeb8bc9f9.png",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Hand-drawn inference: token IDs enter a schematic model with fixed weights, the next token is decoded into a result and appended to the input for continued generation.",
+      "caption": "During inference, weights stay fixed while newly generated tokens extend the context. The three input IDs are an excerpt from our tokenizer example. The graph is a conceptual picture of parameters, not a transformer wiring diagram; the result box does not show an observed model response.",
+      "sha256": {
+        "file": "849af8dcd349a88238e7597297fd2c853a2a8ad71840b81dbb39d84f781d2835",
+        "delivery": "29803bbd88d0ea628f8a19a4b435eaae971a0f7a3dfa2bd0ecec0540ec2a6354"
+      }
+    },
+    {
+      "file": "cpt-weights-sketch.png",
+      "delivery": "cpt-weights-sketch.webp",
+      "role": "handwritten technical diagram",
+      "prompt": "Use case: scientific-educational. Asset: one standalone handwritten technical diagram for an English programming blog, landscape 3:2. Match the reference technical sketch just shown: navy blue pen and loose pencil on warm ivory textured paper, subtle dusty blue and sage watercolor fills, terracotta for feedback arrows. This is a clear technical whiteboard drawing, not a desk scene or a cartoon story. No decorative objects, no robot, no photorealism, no 3D, no logos, no watermark. Sparse balanced layout, large readable handwritten English labels, thick clean arrows, generous margins. Draw only the specified short text, no extra formulas, arbitrary numbers or metrics. Connection diagrams are explicitly conceptual. Main subject: continued pretraining, where domain text supplies a next-token learning signal that updates existing model weights. Title at the top exactly \"CPT\". LEFT: a small stack of pages headed exactly \"domain text\" with these four short visible lines exactly \"offer\", \"promo\", \"coupon\", \"delivery\". These are excerpts of corpus language, not class labels. A right-facing arrow labelled exactly \"tokenize\" leads toward a CENTER network diagram headed exactly \"base weights W\". Draw this graph as three columns of circles with 3, 4, 3 nodes and connecting lines of different thickness. Beneath this graph, a small box labelled exactly \"next-token loss\". A solid navy arrow goes from the base graph down to this loss box, representing predictions evaluated against next-token targets derived from the corpus. From the loss box draw a terracotta feedback arrow up to the graph's edges, labelled exactly \"gradient update\". To the RIGHT, draw a second graph headed exactly \"adapted weights W'\". It must have exactly the same three columns of 3, 4, 3 nodes, same layout and same connections as the base graph; only the thickness/color of several edges changes to terracotta, representing changed weights. A neutral right-facing arrow between the two graphs represents the checkpoint after training; keep it visually separate from the forward-to-loss arrow and gradient feedback loop. Do not put the domain words inside graph nodes, add neurons, assign a word to an edge, show a result answer, claim a performance improvement, invent numeric weight values, or show real loss values. Keep the page readable at blog width, favor a spacious simple flow with very large text. The key lesson is language examples → next-token loss → existing weights change; the network topology stays the same.",
+      "generation": "exec-48e8be49-8643-4f03-acfb-73c55b902780.png",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Hand-drawn CPT: domain text containing offer, promo, coupon and delivery is tokenized; next-token loss drives a gradient update from base weights W to adapted weights W-prime with the same graph topology.",
+      "caption": "CPT uses a domain corpus to continue the language-model objective. The same token sequence supplies shifted next-token targets; gradients guide an optimizer's updates to trainable parameters. Here, ‘offer’, ‘promo’, ‘coupon’ and ‘delivery’ are excerpts of corpus language, not class labels or assumed whole-word tokens. Edge thickness and colour are a conceptual picture of changed parameters.",
+      "sha256": {
+        "file": "72c4f9dbf6059a18dbe3a9163e34d91236696e2c14b92aa6abd09ffd0598aeb0",
+        "delivery": "d0afe368a11971a9ce017dc5b16502203ad508d42d37884bd7d27fd67f09f6fb"
+      }
+    }
+  ]
+}
