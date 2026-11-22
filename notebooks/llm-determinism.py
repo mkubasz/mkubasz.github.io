@@ -199,14 +199,7 @@ def request(mo):
     sends the question on its own. On Tuesday it also includes a repository
     convention to use the middle element as the pivot. The convention may come
     from a file, a skill or a retrieval step. The same thing happens when a
-    chat history grows or a system prompt changes between releases. A chat
-    template serializes the messages and their roles into the sequence the
-    model sees. [Hugging Face's guide to chat templates](https://huggingface.co/docs/transformers/chat_templating)
-
-    When I investigate a mismatch, I compare the assembled request first.
-    That means the system and user messages, history, retrieved passages and
-    any tool results the assistant fed back. The sentence copied from the
-    chat window is one field in that trace.
+    chat history grows or a system prompt changes between releases.
     """)
     return
 
@@ -234,6 +227,64 @@ def request_board(escape, mo, quicksort_prompt, repository_instruction):
     return
 
 
+@app.cell(hide_code=True)
+def request_route_map(render_sketch):
+    render_sketch(
+        "request-route-map.webp",
+        (1122, 1402),
+        "A hand-drawn fantasy map follows the request from User Prompt through Agent Camp, API Gateway, "
+        "Model Router, Chat Template, Tokenizer, and Serving Queue to Model Keep. "
+        "The numbered stages are explained in order below.",
+        "One route through a hosted coding-agent system. A local runtime can combine or bypass some of these stops.",
+    )
+    return
+
+
+@app.cell
+def request_route(mo):
+    mo.md(r"""
+    ### What happens at each stop?
+
+    1. **User prompt.** The editor hands *Write QuickSort in Python* to the
+       coding agent. This is the message I can see and copy from the chat.
+    2. **Agent camp.** The agent assembles the conversation. It may include
+       its own instructions, the repository rule about the pivot, chat
+       history, retrieved files and results from earlier tool calls. In a
+       chat API, the request can also carry the model name, generation
+       settings and the definitions of available tools. A tool result from
+       this turn can become context in a later request.
+       [GitHub's guide to coding-agent context](https://docs.github.com/en/copilot/reference/customization-cheat-sheet)
+       · [vLLM's chat API](https://docs.vllm.ai/en/stable/serving/online_serving/openai_compatible_server/)
+    3. **API gateway.** The agent sends the request over HTTP. A hosted gateway
+       can check credentials and usage limits before forwarding the request.
+       [Envoy Gateway's rate-limiting guide](https://gateway.envoyproxy.io/docs/concepts/rate-limiting/)
+    4. **Model router.** The service maps the requested name or alias to a
+       deployment. It can then pick a replica, for example using current load.
+       The deployment determines which checkpoint and serving configuration
+       handle this run. The gateway and router can be part of the same service.
+       [Kubernetes Inference Gateway's endpoint selection](https://gateway-api-inference-extension.sigs.k8s.io/api-types/inferencepool/)
+    5. **Chat template.** The selected model's template formats the messages.
+       It can mark who said what and where the assistant's turn should begin.
+       [Hugging Face's guide to chat templates](https://huggingface.co/docs/transformers/chat_templating)
+    6. **Tokenizer.** The formatted prompt becomes an ordered list of token IDs.
+       This is where the exact spelling, spaces and added repository rule
+       show up in the input. The assembled context also has to fit the model's
+       token budget. An agent can trim or summarize earlier messages to make room.
+    7. **Serving queue.** The runtime schedules the request. In a shared
+       deployment it can process the prompt in a batch alongside other requests.
+       [vLLM's architecture overview](https://docs.vllm.ai/en/stable/design/arch_overview/)
+    8. **Model keep.** The model receives the token IDs and runs them through
+       its frozen weights. The first forward pass gives us logits for the next
+       token. The decoder makes the choice in the next section.
+
+    When I investigate a mismatch, I compare the assembled messages and any
+    context the agent supplied first. Then I check which deployment and
+    tokenizer the request reached. Two identical lines in the chat can take
+    different routes through the system.
+    """)
+    return
+
+
 @app.cell
 def decoding(mo):
     mo.md(r"""
@@ -246,8 +297,10 @@ def decoding(mo):
     different tokens even when the scores and temperature match.
     [Transformers generation strategies](https://huggingface.co/docs/transformers/generation_strategies)
 
-    After a token is chosen, it becomes part of the input for the next step.
-    A small difference early on can give us a different function by the end.
+    The runtime appends the chosen token to the sequence, after the prompt and
+    any tokens generated so far. The model uses that longer sequence to score
+    the candidates for the next token. One small difference early on can give
+    us a different function by the end.
     If you want to see how the probabilities move before any pick is made,
     try the charts in [What temperature does to a softmax](/blog/softmax-temperature/).
 
@@ -256,7 +309,25 @@ def decoding(mo):
     decoding removes that draw entirely. Some interfaces expose it as
     `temperature=0`. The resulting token still depends on the scores the
     runtime computes for that request.
+
+    The loop can stop when the model emits an end-of-sequence token or when
+    generation reaches the configured token limit.
+    [Transformers stopping criteria](https://huggingface.co/docs/transformers/internal/generation_utils#stoppingcriteria)
     """)
+    return
+
+
+@app.cell(hide_code=True)
+def decoder_route_map(render_sketch):
+    render_sketch(
+        "decoder-route-map.webp",
+        (1122, 1402),
+        "A fantasy map leads from Model Keep to logits and then to the decoder. "
+        "A side path feeds temperature and seed into the decoder when sampling. "
+        "The decoder chooses the next token, which joins the sequence. A blue path takes the extended sequence "
+        "back to Model Keep for another step, and the main path leads to the answer when generation stops.",
+        "The blue road is the return path. Each chosen token becomes part of the context for the next prediction.",
+    )
     return
 
 
@@ -269,7 +340,7 @@ def flow_sketch(quicksort_prompt, render_sketch, repository_instruction):
         "The model reads tokens from both and returns logits. The decoder chooses the next token. "
         "When sampling, temperature shapes the probabilities and the seed sets the random sequence. "
         "One possible answer is QuickSort with a middle pivot.",
-        "The full request enters the model. The model and decoder then repeat their steps for each new token.",
+        "In the full QuickSort request, the repository rule reaches the model together with the user prompt.",
     )
     return
 
