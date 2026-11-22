@@ -1,0 +1,21 @@
+Edit the supplied handwritten diagram as a precise content update. Keep the same warm paper, dark navy hand lettering, sparse blue/peach/green highlighter, wide outlined boxes, downward arrows and QuickSort example. Keep the first two boxes and final box wording unchanged. Revise the model box and insert one new DECODER box after it. Use a slightly taller canvas if helpful so that all five stages read clearly at phone width. Draw exactly five boxes top to bottom, joined by exactly four downward arrows. Hand-write these lines verbatim in order, with no additional text:
+Box 1:
+USER TYPES
+Write QuickSort in Python.
+Box 2:
+SYSTEM ADDS
+Use the middle element as the pivot.
+Box 3:
+MODEL
+Reads tokens from the prompt and rule
+Outputs logits for the next token
+Box 4:
+DECODER
+Chooses the next token
+When sampling:
+Temperature shapes the odds
+Seed sets the random sequence
+Box 5:
+POSSIBLE ANSWER
+QuickSort with a middle pivot
+Give MODEL and DECODER distinct highlighter accents, and highlight the two sampling settings lightly inside the decoder box. Keep every line large, straight and readable. Fit all content completely within the image. No other captions, symbols, footnotes or graphics.

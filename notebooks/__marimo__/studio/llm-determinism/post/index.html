@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Why did the same LLM prompt give me a different answer? · Mateusz Kubaszek</title>
+    <meta name="description" content="Follow one QuickSort request through training, prompt assembly, decoding and serving, then replay five controlled comparisons.">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Montserrat:wght@400;500;700&family=Noto+Sans:ital,wght@0,400;0,700;1,400&family=Source+Code+Pro&display=swap">
+    <link rel="stylesheet" href="./post.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#app-shell">Skip to article</a>
+    <nav class="band" aria-label="Site">
+      <div><a href="/">Mateusz Kubaszek</a><a href="/blog/">← Blog</a></div>
+    </nav>
+    <main id="app-shell" tabindex="-1">
+      <article class="post-body" aria-labelledby="post-title">
+        <header>
+          <p class="meta"><time datetime="2026-11-20">November 20, 2026</time> · LLMs · Inference</p>
+          <h1 id="post-title">Why did the same LLM prompt give me a different answer?</h1>
+          <p class="lead">One QuickSort request. How much of the run did we actually repeat?</p>
+        </header>
+        <section id="start">
+          <marimo-cell name="black_box_sketch"></marimo-cell>
+          <marimo-cell name="prompt_transition" class="prompt-transition"></marimo-cell>
+          <marimo-cell name="polite_black_box_sketch"></marimo-cell>
+          <marimo-cell name="opening"></marimo-cell>
+        </section>
+        <nav class="article-contents" aria-label="In this article">
+          <a href="#weights">Weights and training</a>
+          <a href="#request">The full request</a>
+          <a href="#decoding">Decoding</a>
+          <a href="#runtime">Serving arithmetic</a>
+          <a href="#experiment">Try the decoder</a>
+          <a href="#replay">Replay a run</a>
+        </nav>
+        <section id="weights">
+          <marimo-cell name="weights"></marimo-cell>
+          <marimo-cell name="frozen_weights_sketch"></marimo-cell>
+          <marimo-cell name="checkpoint_variation"></marimo-cell>
+        </section>
+        <section id="request">
+          <marimo-cell name="request"></marimo-cell>
+          <marimo-cell name="request_board"></marimo-cell>
+        </section>
+        <section id="decoding">
+          <marimo-cell name="decoding"></marimo-cell>
+          <marimo-cell name="flow_sketch"></marimo-cell>
+        </section>
+        <section id="runtime">
+          <marimo-cell name="runtime"></marimo-cell>
+          <marimo-cell name="rounding_sketch"></marimo-cell>
+          <marimo-cell name="runtime_takeaway"></marimo-cell>
+        </section>
+        <section id="experiment">
+          <marimo-cell name="lab_intro"></marimo-cell>
+          <marimo-cell name="controls"></marimo-cell>
+          <div aria-live="polite">
+            <marimo-cell name="lab_report"></marimo-cell>
+          </div>
+        </section>
+        <section id="replay">
+          <marimo-cell name="replay"></marimo-cell>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>
